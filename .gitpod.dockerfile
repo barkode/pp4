@@ -4,7 +4,7 @@ RUN echo "CI version from base"
 
 ### NodeJS ###
 USER gitpod
-ENV NODE_VERSION=16.13.0
+ENV NODE_VERSION=20.17.0
 ENV TRIGGER_REBUILD=1
 RUN curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | PROFILE=/dev/null bash \
     && bash -c ". .nvm/nvm.sh \
@@ -18,7 +18,7 @@ ENV PATH=$PATH:/home/gitpod/.nvm/versions/node/v${NODE_VERSION}/bin
 ### Python ###
 USER gitpod
 RUN sudo install-packages python3-pip
-ENV PYTHON_VERSION 3.12.2
+ENV PYTHON_VERSION 3.12.5
 
 ENV PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH
 RUN curl -fsSL https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash \
