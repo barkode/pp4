@@ -1,1 +1,1 @@
-web: gunicorn link_storage.wsgi
+web: gunicorn storelink.wsgi
