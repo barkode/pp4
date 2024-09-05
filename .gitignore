@@ -412,4 +412,4 @@ dist
 .pnp.*
 
 env.py
-blog/fixtures/
+fixtures/
