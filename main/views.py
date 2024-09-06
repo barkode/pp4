@@ -4,5 +4,11 @@ from django.http import HttpResponse
 # Create your views here.
 
 
-def main(request):
-    return HttpResponse("Hello, world. You're at the polls list.")
+def index(request):
+    context = {"title": "Home", "content": "Main page of this website"}
+
+    return render(request, "main/index.html", context)
+
+
+def about(request):
+    return HttpResponse("About page")
