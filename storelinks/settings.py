@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     "user_favorites",
     "user_lists",
     "user_profile",
+    "django_summernote",
 ]
 
 MIDDLEWARE = [

@@ -1,5 +1,6 @@
-from cloudinary.models import CloudinaryField
 from django.db import models
+
+# from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -8,7 +9,7 @@ class Movie(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     release_date = models.DateField()
-    poster = CloudinaryField("image")
+    # poster = CloudinaryField("image")
     sypnosis = models.TextField(max_length=400)
     trailer = models.URLField(max_length=100)
     info_link = models.URLField(max_length=100)
