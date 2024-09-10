@@ -58,13 +58,14 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # Third part apps
+    "bootstrap5",
     # Own apps
     "main",
     "about",
     "movie",
     "comment",
     "user_favorites",
-    "user_lists",
+    "wishlist",
     "user_profile",
     "django_summernote",
 ]

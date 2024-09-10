@@ -1,18 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-from movie.models import Movie
+from movie.models import Movies
 
 # Create your models here.
 
 
-class MovieComments(models.Model):
+class MovieComment(models.Model):
     """
     Stores a simple comment entry related to :model:`auth.User`
     and :model:`Movie`.
     """
 
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE, related_name="comments")
+    movie = models.ForeignKey(Movies, on_delete=models.CASCADE, related_name="comments")
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="user_comments"
     )
