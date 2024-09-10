@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 
 def index(request):
-    context = {"title": "Home - Main", "content": " HOME - Furniture and carpets store"}
+    context = {"title": "Home - Main", "movie": " HOME - Furniture and carpets store"}
 
     return render(
         request,

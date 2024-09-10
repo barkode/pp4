@@ -1,0 +1,202 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/_booswatch.scss' %}">
+    <link rel="stylesheet" href="{% static 'css/_variables.scss' %}">
+
+    <!-- Footer for main page -->
+    {% block css %}
+    	
+    {% endblock %}
+    <!-- Favicons for different platforms -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png'%}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png'%}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png'%}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest'%}">
+    <title>{{ title }}</title>
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-sm-2" type="search" placeholder="Search">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+<section>
+    <div class="container">
+        <!-- Каталог и корзина с фиксированным расположением на странице -->
+        <div class="row mt-1 position-fixed z-3">
+            <!-- Каталог -->
+            <div class="dropdown mb-2">
+                <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                    Каталог
+                    <img class="mx-1" src="{% static 'icons/grid-fill.svg'%}" alt="Catalog Icon" width="16"
+                         height="16">
+                </button>
+                <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
+                    <li><a class="dropdown-item text-white" href="{% url 'movie:index' %}">Все товары</a></li>
+                    <li><a class="dropdown-item text-white" href="{% url 'movie:index' %}">Кухня</a></li>
+                    <li><a class="dropdown-item text-white" href="{% url 'movie:index' %}">Спальня</a></li>
+                    <li><a class="dropdown-item text-white" href="{% url 'movie:index' %}">Гостинная</a></li>
+                    <li><a class="dropdown-item text-white" href="{% url 'movie:index' %}">Офис</a></li>
+                    <li><a class="dropdown-item text-white" href="{% url 'movie:index' %}">Фурнитура</a></li>
+                    <li><a class="dropdown-item text-white" href="{% url 'movie:index' %}">Декор</a></li>
+                </ul>
+            </div>
+            <!-- Значек корзины, вызывает модальное окно -->
+            <div>
+                <button type="button" class="btn btn-dark btn-secondary d-flex" id="modalButton"
+                        aria-expanded="false">
+                    <img class="mx-1" src="{% static 'icons/basket2-fill.svg'%}" alt="Catalog Icon" width="24"
+                         height="24">
+                    <span id="goods-in-cart-count">0</span>
+                </button>
+            </div>
+            <!-- Разметка модального окна корзины -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h3 class="text-center mb-4">Корзина</h3>
+                            <div class="container" id="cart-items-container">
+                                <!-- Разметка корзины -->
+                                <div class="card mb-3 text-bg-light shadow-lg">
+                                    <div class="card-header">
+                                        <h5 class="card-title">Товар</h5>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <div class="row text-center">
+                                                <div class="col p-0">
+                                                    <div class="input-group">
+                                                            <span class="input-group-btn">
+                                                                <button type="button" class="btn btn-dark btn-sm decrement"
+                                                                        data-cart-id="" data-cart-change-url="">-</button>
+                                                            </span>
+                                                        <input type="text" class="form-control number" value="1"
+                                                               readonly>
+                                                        <span class="input-group-btn">
+                                                                <button type="button" class="btn btn-dark btn-sm increment"
+                                                                        data-cart-id="" data-cart-change-url="">+</button>
+                                                            </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col p-0">
+                                                    <p>x 100.00 = </p>
+                                                </div>
+                                                <div class="col p-0"><strong>100.00 $</strong></div>
+                                                <div class="col p-0">
+                                                    <a href="#" class="remove-from-cart" data-cart-id="">
+                                                        <img class="mx-1" src="{% static 'icons/trash3-fill.svg'%}"
+                                                             alt="Catalog Icon" width="16" height="16">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card mb-3 shadow-lg">
+                                    <div class="card-footer">
+                                        <p class="float-left">Итого <strong>1</strong> товар(а) на сумму</p>
+                                        <h4 class="float-left"><strong>100.00 $</strong></h4>
+                                    </div>
+                                </div>
+                                <!-- Закончилась разметка корзины -->
+                            </div>
+                            <a class="btn btn-dark" href="orders/create_order.html">
+                                Оформить заказ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Закончилась разметка модального окна -->
+        </div>
+    </div>
+    <!-- Контент -->
+    <div class="container">
+        <div class="row mt-1">
+            <div class="col-lg-2">
+                <!-- Пустой блок на Ваше усмотрение -->
+            </div>
+            <div class="col-lg-10">
+                <!-- Контент на странице -->
+                {% block content %}
+                	
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</section>
+    <footer class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <p class="col-md-4 mb-0 text-body-secondary">&copy; 2024 Company, Inc</p>
+
+        <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+        </a>
+
+        <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+        </ul>
+    </footer>
+<script src="{% static 'js/jquery/jquery-3.7.0.min.js' %}"></script>
+<script src="{% static 'js/jquery-events.js'%}"></script>
+<script src="{% static 'js/jquery-ajax.js' %}"></script>
+<script src="{% static 'js/bootstrap/bootstrap.bundle.min.js'%}"></script>
+</body>
+
+</html>
