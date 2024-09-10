@@ -18,6 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from storelinks.settings import DEBUG
 
 urlpatterns = [
     path("", include("main.urls", namespace="main")),
@@ -25,3 +26,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("movie/", include("movie.urls", namespace="movie")),
 ]
+
+if DEBUG:
+    urlpatterns += [
+        path("__debug__/", include("debug_toolbar.urls")),
+    ]

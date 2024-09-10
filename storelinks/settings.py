@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 import os
+import sys
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -35,6 +36,10 @@ ALLOWED_HOSTS = [
     "localhost",
 ]
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
 # List of the trusted origins for requests
 
 CSRF_TRUSTED_ORIGINS = [
@@ -52,12 +57,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Third part apps
+    # Own apps
     "main",
     "about",
     "movie",
     "comment",
     "user_favorites",
-    "user_list",
+    "user_lists",
     "user_profile",
 ]
 
@@ -70,6 +77,15 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+# Turn off django debug toolbar when running test
+
+TESTING = "test" in sys.argv
+
+if not TESTING:
+    INSTALLED_APPS.append("debug_toolbar")
+    MIDDLEWARE.append("debug_toolbar.middleware.DebugToolbarMiddleware")
+
 
 ROOT_URLCONF = "storelinks.urls"
 
