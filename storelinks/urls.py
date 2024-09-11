@@ -21,10 +21,10 @@ from django.urls import path, include
 from storelinks.settings import DEBUG
 
 urlpatterns = [
-    path("", include("main.urls", namespace="main")),
+    path("", include("movie.urls", namespace="movie")),
+    path("movies/", include("movie.urls", namespace="movie")),
     path("about/", include("about.urls", namespace="about")),
     path("admin/", admin.site.urls),
-    path("movie/", include("movie.urls", namespace="movie")),
     path("summernote/", include("django_summernote.urls")),
 ]
 

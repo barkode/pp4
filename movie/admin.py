@@ -8,8 +8,9 @@ from .models import Movies
 
 @admin.register(Movies)
 class MovieList(SummernoteModelAdmin):
-    list_display = ("title", "slug", "status")
+    list_display = (
+        "title",
+        "slug",
+    )
     search_fields = ["title", "slug"]
-    summernote_fields = ("status",)
-    list_filter = ("status",)
     prepopulated_fields = {"slug": ("title",)}

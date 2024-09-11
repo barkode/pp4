@@ -1,10 +1,23 @@
 from django.shortcuts import render
 
+from movie.models import Movies
+
 
 # Create your views here.
-def content(request):
-    pass
+def catalog(request):
+
+    all_movies = Movies.objects.all()
+
+    context = {
+        "title": "Home Page",
+        "content": "This is a page with movies",
+        "movies": all_movies,
+    }
+
+    return render(request, "movie/content.html", context)
 
 
-def poster(request):
-    pass
+def movie(request):
+    context = {"title": "Poster Page", "content": "This is a poster page"}
+
+    return render(request, "movie/poster.html", context)

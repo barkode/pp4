@@ -8,6 +8,6 @@ def index(request):
 
     return render(
         request,
-        "main/index.html",
+        "main/content.html",
         context,
     )
