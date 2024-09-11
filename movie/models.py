@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # from cloudinary.models import CloudinaryField
 
@@ -9,32 +10,7 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 class Movies(models.Model):
     """
-    title,
-    year,
-    rated,
-    released,
-    runtime,
-    genre,
-    director,
-    writer,
-    actors,
-    plot,
-    language,
-    country,
-    awards,
-    poster,
-    ratings,
-    metascore,
-    imdbraiting,
-    imdbvotes,
-    imdbid,
-    type,
-    dvd,
-    boxoffice,
-    production,
-    website,
-    response
-
+    title, year,rated,released,runtime,genre,director,writer,actors,plot,language,country,awards,poster,ratings,metascore,imdbraiting,imdbvotes,imdbid,type,dvd,boxoffice,production, website, response
     """
 
     title = models.CharField(max_length=200, unique=True, verbose_name="Movie Title")
@@ -46,7 +22,9 @@ class Movies(models.Model):
         verbose_name="URL",
     )
     plot = models.TextField(max_length=400)
+    created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
+    status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
         db_table = "movie"
