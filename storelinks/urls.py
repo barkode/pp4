@@ -25,7 +25,7 @@ urlpatterns = [
     path("about/", include("about.urls", namespace="about")),
     path("accounts/", include("allauth.urls")),
     path("admin/", admin.site.urls),
-    path("movies/", include("movie.urls", namespace="movie")),
+    # path("movies/", include("movie.urls", namespace="movie")),
     path("summernote/", include("django_summernote.urls")),
 ]
 
