@@ -4,6 +4,6 @@ from . import views
 app_name = "movie"
 
 urlpatterns = [
-    path("", views.catalog, name="index"),
-    path("movies/movie/", views.movie, name="item"),
+    path("", views.Catalog.as_view(), name="movies_catalog"),
+    path("movies/movie/", views.movie, name="movie"),
 ]
