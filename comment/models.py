@@ -7,7 +7,6 @@ from movie.models import Movies
 
 # Create your models here.
 
-
 class MovieComment(models.Model):
     """
     Stores a simple comment entry related to :model:`auth.User`

@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# from cloudinary.models import CloudinaryField
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -30,7 +30,7 @@ class Movies(models.Model):
         db_table = "movie"
         verbose_name = "Movie"
         verbose_name_plural = "Movies"
-        ordering = ["title"]
+        ordering = ["title", "status"]
 
-    def __str__(self):
-        return f"{self.title}"
+    # def __str__(self):
+    #     return f"{self.title}  | {STATUS[self.status][1]}"

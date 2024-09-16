@@ -1,8 +1,15 @@
 from django.contrib import admin
-from django_summernote.admin import SummernoteModelAdmin
 
 from .models import Movies
+from comment.models import MovieComment
 
 # Register your models here.
 
-admin.site.register(Movies)
+@admin.register(Movies)
+class MoviesAdmin(admin.ModelAdmin):
+    """
+    Allows administrator to manage movies
+    """
+    list_display = ['title', "created_on", "status"]
+    search_fields = ['title', "status", "created_on"]
+    list_filter = ['status', 'created_on']
