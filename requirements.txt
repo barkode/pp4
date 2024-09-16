@@ -15,7 +15,6 @@ django-allauth==64.2.1
 django-bootstrap-v5==1.0.11
 django-crispy-forms==2.3
 django-debug-toolbar==4.4.6
-django-summernote==0.8.20.0
 gunicorn==23.0.0
 idna==3.8
 mypy-extensions==1.0.0
