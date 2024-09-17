@@ -1,18 +1,23 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-{% block css %}
-    <link rel="stylesheet" href="{% static 'css/my_footer_css.css'%}">
-{% endblock %}
-
 {% block content %}
-    <h1 class="mt-5 pt-5"><strong>{{ content }}</strong></h1>
-{% endblock %}
-
-{% block footer %}
-    <footer class="py-4 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Home Python Hub Studio 2023</p>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-4 text-center">
+                <img src="{% static 'images/nobody.jpg' %}" width="75%">
+            </div>
+            <div class="col-8">
+                <!-- Title goes between these h2 tags -->
+                <h2></h2>
+                <!-- Content goes directly underneath this -->
+            </div>
         </div>
-    </footer>
+        <div class="row">
+            <div class="col text-right">
+                <!-- Updated on field goes in here -->
+                <p class="text-end"><em>Updated on: </em></p>
+            </div>
+        </div>
+    </div>
 {% endblock %}
