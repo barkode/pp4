@@ -7,26 +7,37 @@
 <html lang="en">
 
 <head>
+    <!-- Required Meta Tags -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {#    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">#}
-    {% load bootstrap5 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
+
+    <!-- Document Title, Description and author -->
+
+    <title>{{ title }}</title>
+    <meta name="description" content="StoreLinks is a free online link storage ">
+    <meta name="author" content="Kostiantyn Krysenko">
+
+    <!-- Google Fonts Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
     <!-- Favicons for different platforms -->
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
     <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
-    <title>{{ title }}</title>
+
+    <!-- CSS files -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 
-<body>
+<!-- BSB Head -->
+<body class="bsb-tpl-bg-50 py-3 py-md-5 py-xl-6">
+<!-- Header -->
 <header id="header"
         class="bsb-tpl-bg-50 sticky-top bsb-spacer-top-3 bsb-spacer-top-md-5 bsb-spacer-top-xl-6 bsb-tpl-header-sticky bsb-tpl-header-sticky-animation">
-
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -34,7 +45,7 @@
                 <nav class="navbar navbar-expand-lg bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky bg-white border border-dark px-xl-3"
                      data-bsb-sticky-target="#header">
                     <div class="container">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="#">
                             <img src="./assets/img/branding/presta-logo.svg" class="bsb-tpl-logo" alt="">
                         </a>
                         <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
@@ -55,7 +66,8 @@
                             <div class="offcanvas-body">
                                 <ul class="navbar-nav justify-content-end flex-grow-1">
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                                        <a class="nav-link {% if request.path == movie_catalog %}active{%endif%}" aria-current="page"
+                                           href="{% url 'movies:movie_catalog' %}">Home</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="service.html">Service</a>
@@ -74,21 +86,24 @@
                                         <a class="nav-link" href="shop.html">Shop</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="about.html">About</a>
+                                        <a class="nav-link {% if page == 'about' %}active{% endif %} " href="{% url 'about:about' %}">About</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="contact.html">Contact</a>
+                                        <a class="nav-link {% if page == 'about' %}active{% endif %}" href="{% url 'about:contact_us' %}">Contact</a>
                                     </li>
                                     {% if user.is_authenticated %}
                                         <li class="nav-item">
-                                            <a class="nav-link {% if request.path == logout_url %}active{% endif %}" href="{% url 'account_logout' %}" aria-current="page">Logout</a>
+                                            <a class="nav-link {% if request.path == logout_url %}active{% endif %}"
+                                               href="{% url 'account_logout' %}" aria-current="page">Logout</a>
                                         </li>
                                     {% else %}
                                         <li class="nav-item">
-                                            <a class="nav-link {% if request.path == signup_url %}active{% endif %}" href="{% url 'account_signup' %}" aria-current="page">Register</a>
+                                            <a class="nav-link {% if request.path == signup_url %}active{% endif %}"
+                                               href="{% url 'account_signup' %}" aria-current="page">Register</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link {% if request.path == login_url %}active{% endif %}" href="{% url 'account_login' %}" aria-current="page">Login</a>
+                                            <a class="nav-link {% if request.path == login_url %}active{% endif %}"
+                                               href="{% url 'account_login' %}" aria-current="page">Login</a>
                                         </li>
                                     {% endif %}
 
@@ -103,15 +118,114 @@
 
 </header>
 
-<section>
-    <div class="container">
-        {% block content %}
+<main id="main">
+    <section>
+        <div class="container">
+            {% block content %}
 
-        {% endblock %}
-    </div>
-</section>
+            {% endblock %}
+        </div>
+    </section>
+</main>
 <!-- Footer 7 - Bootstrap Brain Component -->
 <footer class="footer pt-3 pt-md-5 pt-xl-6">
+
+    <!-- Widgets - Bootstrap Brain Component -->
+    <section class="py-4 py-md-5">
+        <div class="container overflow-hidden">
+            <div class="row">
+                <div class="col-12">
+                    <div class="container-fluid border border-dark">
+                        <div class="row">
+                            <div class="col-xs-12 col-lg-4">
+                                <div class="widget p-3 p-md-4 p-xxl-5">
+                                    <h4 class="widget-title mb-4">Get in Touch</h4>
+                                    <address class="mb-4">8014 Edith Blvd NE, Albuquerque, New York, United States
+                                    </address>
+                                    <p class="mb-1">
+                                        <a class="link-dark link-offset-1 link-opacity-75 link-opacity-100-hover link-underline-opacity-0 link-underline-opacity-100-hover"
+                                           href="tel:+15057922430">(505) 792-2430</a>
+                                    </p>
+                                    <p class="mb-0">
+                                        <a class="link-dark link-offset-1 link-opacity-75 link-opacity-100-hover link-underline-opacity-0 link-underline-opacity-100-hover"
+                                           href="mailto:demo@yourdomain.com">demo@yourdomain.com</a>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-lg-4">
+                                <div class="widget p-3 p-md-4 p-xxl-5">
+                                    <h4 class="widget-title mb-4">Services</h4>
+                                    <ul class="list-unstyled m-0 p-0">
+                                        <li class="mb-2">
+                                            <a href="#!"
+                                               class="link-dark link-offset-1 link-opacity-75-hover link-underline-opacity-0 link-underline-opacity-100-hover">Brake
+                                                Repair</a>
+                                        </li>
+                                        <li class="mb-2">
+                                            <a href="#!"
+                                               class="link-dark link-offset-1 link-opacity-75-hover link-underline-opacity-0 link-underline-opacity-100-hover">Tire
+                                                Balance</a>
+                                        </li>
+                                        <li class="mb-2">
+                                            <a href="#!"
+                                               class="link-dark link-offset-1 link-opacity-75-hover link-underline-opacity-0 link-underline-opacity-100-hover">Oil
+                                                Change</a>
+                                        </li>
+                                        <li class="mb-2">
+                                            <a href="#!"
+                                               class="link-dark link-offset-1 link-opacity-75-hover link-underline-opacity-0 link-underline-opacity-100-hover">Car
+                                                Wash</a>
+                                        </li>
+                                        <li class="mb-0">
+                                            <a href="#!"
+                                               class="link-dark link-offset-1 link-opacity-75-hover link-underline-opacity-0 link-underline-opacity-100-hover">Engine
+                                                Repair</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-lg-4">
+                                <div class="widget p-3 p-md-4 p-xxl-5">
+                                    <h4 class="widget-title mb-4">Opening Hours</h4>
+                                    <p class="mb-4">We always aim to provide a welcoming environment to deliver
+                                        exceptional service.</p>
+                                    <div>
+                                        <div class="row mb-1">
+                                            <div class="col-5 col-xl-4">
+                                                <span class="fw-bold">Mon - Fri:</span>
+                                            </div>
+                                            <div class="col-7 col-xl-8">
+                                                <span class="text-secondary">9am - 5pm</span>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-1">
+                                            <div class="col-5 col-xl-4">
+                                                <span class="fw-bold">Sat:</span>
+                                            </div>
+                                            <div class="col-7 col-xl-8">
+                                                <span class="text-secondary">9am - 2pm</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5 col-xl-4">
+                                                <span class="fw-bold">Sun:</span>
+                                            </div>
+                                            <div class="col-7 col-xl-8">
+                                                <span class="text-secondary">We're Closed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Colophon - Bootstrap Brain Component -->
     <div class="pb-4 pb-md-5">
         <div class="container overflow-hidden">
@@ -185,10 +299,15 @@
             </div>
         </div>
     </div>
+
 </footer>
 
-
-<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<!-- Javascript Files: Vendors -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+<!-- Javascript Files: Controllers -->
+<script src="{% static 'js/scripts.js' %}"></script>
 </body>
 
 </html>
