@@ -1,21 +1,37 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.views import generic
 
-from movie.models import Movies
+from .models import Movie
 
-def catalog(request):
-
-    all_movies = Movies.objects.all()
-
-    context = {
-        "title": "Home Page",
-        "content": "This is a page with movies",
-        "movies": all_movies,
-    }
-
-    return render(request, "movie/content.html", context)
+class MovieCatalog(generic.ListView):
+    queryset = Movie.objects.filter(status=1)
+    template_name = "movie/index.html"
+    context_object_name = "movies_list"
+    paginate_by = 8
+    paginate_orphans = 3
 
 
-def movie(request):
-    context = {"title": "Poster Page", "content": "This is a poster page"}
 
-    return render(request, "movie/poster.html", context)
+def movie_detail(request, slug):
+    """
+    Display an individual :model:`blog.Post`.
+
+    **Context**
+
+    ``post``
+        An instance of :model:`blog.Post`.
+
+    **Template:**
+
+    :template:`blog/post_detail.html`
+    """
+
+    queryset = Movie.objects.filter(status=1)
+    post = get_object_or_404(queryset, slug=slug)
+
+    return render(
+        request,
+        "movie/poster.html",
+        {"post": post},
+        )
+
