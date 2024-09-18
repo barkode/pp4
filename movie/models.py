@@ -37,26 +37,32 @@ class Movie(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        db_table = 'movie'
+        verbose_name = 'Movie'
+        verbose_name_plural = 'Movies'
+
     def __str__(self):
         return self.title
 
-
     def save(self, *args, **kwargs):
-        if not self.slug:
+        if not self.slug or self.title != self.slug_to_title(self.slug):
             self.slug = self.generate_unique_slug()
         super().save(*args, **kwargs)
 
+    def slug_to_title(self, slug):
+        # Returns the original title из slug
+        return slug.replace('-', ' ').title()  # Example, "the-shawshank-redemption" -> "The Shawshank Redemption"
 
     def generate_unique_slug(self):
         original_slug = slugify(self.title)
-        queryset = Movie.objects.filter(slug=original_slug)
         unique_slug = original_slug
         counter = 1
 
-        while queryset.exists():
-            unique_slug = f"{original_slug}-{counter}"
+        # Check whether such a slug already exists in the database
+        while Movie.objects.filter(slug=unique_slug).exists():
+            unique_slug = f"{original_slug}-{counter}"  # Если есть, добавляем счетчик
             counter += 1
-            queryset = Movie.objects.filter(slug=unique_slug)
 
         return unique_slug
 
@@ -66,12 +72,18 @@ class Rating(models.Model):
     source = models.CharField(max_length=100)
     value = models.CharField(max_length=20)
 
+    class Meta:
+        db_table = 'rating'
+
     def __str__(self):
         return f"{self.source}: {self.value}"
 
 
 class Actor(models.Model):
     name = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = 'actor'
 
     def __str__(self):
         return self.name
@@ -80,12 +92,18 @@ class Actor(models.Model):
 class Genre(models.Model):
     name = models.CharField(max_length=100, default='without_genre')
 
+    class Meta:
+        db_table = 'genre'
+
     def __str__(self):
         return self.name
 
 
 class Production(models.Model):
     name = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = 'production'
 
     def __str__(self):
         return self.name
