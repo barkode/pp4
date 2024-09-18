@@ -3,6 +3,7 @@ from .models import About, CollaborateRequest
 
 # Register your models here.
 
+
 @admin.register(CollaborateRequest)
 class CollaborateRequestAdmin(admin.ModelAdmin):
 
@@ -10,3 +11,5 @@ class CollaborateRequestAdmin(admin.ModelAdmin):
         "message",
         "read",
     )
+
+admin.site.register(About)
