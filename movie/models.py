@@ -81,19 +81,35 @@ class Rating(models.Model):
 
 class Actor(models.Model):
     name = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=270, unique=True, blank=True, null=True)
 
     class Meta:
         db_table = 'actor'
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            # Generate a slug from the name
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
 
     def __str__(self):
         return self.name
 
 
+
 class Genre(models.Model):
     name = models.CharField(max_length=100, default='without_genre')
+    slug = models.SlugField(max_length=250, unique=True, blank=True, null=True)
 
     class Meta:
         db_table = 'genre'
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            # Generate a slug from the name
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
@@ -101,9 +117,16 @@ class Genre(models.Model):
 
 class Production(models.Model):
     name = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=270, unique=True, blank=True, null=True)
 
     class Meta:
         db_table = 'production'
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            # Generate a slug from the name
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name

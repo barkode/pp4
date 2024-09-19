@@ -54,11 +54,13 @@ class MoviesAdmin(admin.ModelAdmin):
 
 @admin.register(Genre)
 class MovieGenre(admin.ModelAdmin):
-    pass
+    prepopulated_fields = {'slug': ('name',)}
+    search_fields = ['name', 'slug']
 
 @admin.register(Actor)
 class MovieActor(admin.ModelAdmin):
-    pass
+    search_fields = ['name', 'slug']
+    prepopulated_fields = {'slug': ('name',)}
 
 @admin.register(Production)
 class MovieProduction(admin.ModelAdmin):
