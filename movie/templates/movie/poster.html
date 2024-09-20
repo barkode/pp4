@@ -40,7 +40,7 @@
 
     {% if movie.poster %}
         <div class="movie-poster">
-            <img src="{{ movie.poster }}" alt="{{ movie.title }} Poster">
+            <img src="{{ movie.poster }}" alt="{{ movie.title }} Poster" loading="lazy" onerror="this.onerror=null; this.src='{% static 'images/no_image_poster.png' %}';">
         </div>
     {% endif %}
 
