@@ -45,7 +45,7 @@
                             <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
                                 <div class="card border border-dark" style="--bs-card-border-radius: 0; --bs-card-inner-border-radius: 0;">
                                     <figure class="card-img-top m-0 overflow-hidden bsb-overlay-hover">
-                                        <a href="#!">
+                                        <a href="{% url 'movies:movie_detail' movie.slug %}">
                                             <img class="img-fluid bsb-scale bsb-hover-scale-up" loading="lazy" src="{{ movie.poster }}" alt="{{ movie.title }}"
                                                  onerror="this.onerror=null; this.src='{% static 'images/no_image_poster.png' %}';" >
                                         </a>

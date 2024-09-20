@@ -1,38 +1,35 @@
-from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator
+from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.views import generic
 
 from .models import Movie
 
 
-class MovieCatalog(generic.ListView):
-    queryset = Movie.objects.filter(status=1).order_by('?')
-    template_name = "movie/index.html"
-    context_object_name = "movies_list"
-    paginate_by = 24
-    paginate_orphans = 3
+def movie_catalog(request):
+    # Use get_list_or_404 to get the list of movies with status=1
+    movies_list = get_list_or_404(Movie.objects.filter(status=1).order_by('?'))
 
-def movie_catalog(request, category_slug):
-    pass
+    # Set up pagination, with 24 items per page and 3 orphans
+    paginator = Paginator(movies_list, 24, orphans=3)
 
-def movie_detail(request, slug):
-    """
-    Display an individual :model:`movie.Poster`.
+    # Get the current page number from the request
+    page_number = request.GET.get('page')
 
-    **Context**
+    # Get the movies for the current page
+    page_obj = paginator.get_page(page_number)
 
-    ``post``
-        An instance of :model:`blog.Post`.
+    # Pass the movies and page object to the template
+    return render(request, 'movie/index.html', {'movies_list': page_obj})
 
-    **Template:**
+def movie_detail(request, movie_slug):
 
-    :template:`blog/post_detail.html`
-    """
 
-    queryset = Movie.objects.filter(status=1)
-    movie = get_object_or_404(Movie, slug=slug)
+    movie = get_object_or_404(Movie, slug=movie_slug)
+
+    context = {'movie': movie}
 
     return render(
         request,
         "movie/poster.html",
-        context={"movie": movie},
+        context=context,
         )
