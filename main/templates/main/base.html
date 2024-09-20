@@ -2,6 +2,10 @@
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
+{% url 'movies:movie_catalog' as home_url %}
+{% url 'about:about' as about_url %}
+{% url 'about:contact_us' as contact_url %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -66,15 +70,12 @@
                             <div class="offcanvas-body">
                                 <ul class="navbar-nav justify-content-end flex-grow-1">
                                     <li class="nav-item">
-                                        <a class="nav-link {% if request.path == movie_catalog %}active{%endif%}" aria-current="page"
+                                        <a class="nav-link {% if request.path == home_url %}active{%endif%}" aria-current="page"
                                            href="{% url 'movies:movie_catalog' %}">Home</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="service.html">Service</a>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#!" id="blogDropdown" role="button"
-                                           data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
+                                           data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
                                         <ul class="dropdown-menu border-0 shadow bsb-zoomIn"
                                             aria-labelledby="blogDropdown">
                                             <li><a class="dropdown-item" href="blog.html">News</a></li>
@@ -83,15 +84,15 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="shop.html">Shop</a>
+                                        <a class="nav-link {% if request.path == about_url %}active{% endif %} " href="{% url 'about:about' %}">About</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link {% if page == 'about' %}active{% endif %} " href="{% url 'about:about' %}">About</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link {% if page == 'about' %}active{% endif %}" href="{% url 'about:contact_us' %}">Contact</a>
+                                        <a class="nav-link {% if request.path == contact_url %}active{% endif %}" href="{% url 'about:contact_us' %}">Contact</a>
                                     </li>
                                     {% if user.is_authenticated %}
+                                        <li class="nav-item">
+                                            <a class="nav-link {% if request.path == profile_url %}active{% endif %}" href="#">Profile</a>
+                                        </li>
                                         <li class="nav-item">
                                             <a class="nav-link {% if request.path == logout_url %}active{% endif %}"
                                                href="{% url 'account_logout' %}" aria-current="page">Logout</a>
