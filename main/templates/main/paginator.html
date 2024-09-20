@@ -26,25 +26,25 @@
 {#            </ul>#}
 {#        </nav>#}
 {#    {% endif %}#}
-    {% if page_obj %}
+    {% if movies_list %}
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center my-4">
                 <div class="custom-shadow d-flex">
 
-                    <li class="page-item {% if not page_obj.has_previous %}disabled{% endif %}">
+                    <li class="page-item {% if not movies_list.has_previous %}disabled{% endif %}">
                         <a class="page-link" href="#">Back</a>
                     </li>
 
-                    {% for page in page_obj.paginator.page_range %}
-                        {% if page >= page_obj.number|add:-2 and page <= page_obj.number|add:2 %}
-                            <li class="page-item {% if page_obj.number == page %} active {% endif %}">
+                    {% for page in movies_list.paginator.page_range %}
+                        {% if page >= movies_list.number|add:-2 and page <= movies_list.number|add:2 %}
+                            <li class="page-item {% if movies_list.number == page %} active {% endif %}">
                                 <a class="page-link" href="#">{{ page }}</a>
                             </li>
                         {% endif %}
                     {% endfor %}
 
 
-                    <li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
+                    <li class="page-item {% if not movies_list.has_next %}disabled{% endif %}">
                         <a class="page-link" href="#">Next</a>
                     </li>
                 </div>
@@ -53,38 +53,4 @@
     {% endif %}
 
 {% endblock %}
-    {#        {% if is_paginated %}#}
-    {#            <nav aria-label="Page navigation example">#}
-    {#                <ul class="pagination justify-content-center my-4">#}
-    {#                    <div class="custom-shadow d-flex">#}
-    {#                        <li class="page-item disabled">#}
-    {#                            <a class="page-link">Previous</a>#}
-    {#                        </li>#}
-    {#                        <li class="page-item"><a class="page-link" href="#">1</a></li>#}
-    {#                        <li class="page-item"><a class="page-link" href="#">2</a></li>#}
-    {#                        <li class="page-item"><a class="page-link" href="#">3</a></li>#}
-    {#                        <li class="page-item">#}
-    {#                            <a class="page-link" href="#">Next</a>#}
-    {#                        </li>#}
-    {#                    </div>#}
-    {#                </ul>#}
-    {#            </nav>#}
-    {#        {% endif %}#}
 
-    {#        <div class="pagination">#}
-    {#            <span class="step-links">#}
-    {#                {% if page_obj.has_previous %}#}
-    {#                    <a href="?page=1">&laquo; first</a>#}
-    {#                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>#}
-    {#                {% endif %}#}
-    {##}
-    {#                <span class="current">#}
-    {#                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.#}
-    {#                </span>#}
-    {##}
-    {#                {% if page_obj.has_next %}#}
-    {#                    <a href="?page={{ page_obj.next_page_number }}">next</a>#}
-    {#                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>#}
-    {#                {% endif %}#}
-    {#            </span>#}
-    {#        </div>#}
