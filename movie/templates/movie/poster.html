@@ -2,6 +2,47 @@
 {% load static %}
 
 {% block content %}
-<h1>POSTER MOVIES</h1>
-<h2>{{ content }}</h2>
+
+    <div class="movie-details">
+        <h1>{{ movie.title }} ({{ movie.year }})</h1>
+        <p><strong>Rating:</strong> {{ movie.rated }}</p>
+        <p><strong>Released:</strong> {{ movie.released }}</p>
+        <p><strong>Runtime:</strong> {{ movie.runtime }}</p>
+        <p><strong>Genres:</strong>
+            {% for genre in movie.genres.all %}
+                {{ genre.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+        <p><strong>Director:</strong> {{ movie.director }}</p>
+        <p><strong>Writer:</strong> {{ movie.writer }}</p>
+        <p><strong>Actors:</strong>
+            {% for actor in movie.actors.all %}
+                {{ actor.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+        <p><strong>Plot:</strong> {{ movie.plot }}</p>
+        <p><strong>Language:</strong> {{ movie.language }}</p>
+        <p><strong>Country:</strong> {{ movie.country }}</p>
+        <p><strong>Awards:</strong> {{ movie.awards }}</p>
+        <p><strong>Metascore:</strong> {{ movie.metascore }}</p>
+        <p><strong>IMDb Rating:</strong> {{ movie.imdb_rating }} ({{ movie.imdb_votes }} votes)</p>
+        <p><strong>IMDb ID:</strong> {{ movie.imdb_id }}</p>
+        <p><strong>Type:</strong> {{ movie.type }}</p>
+        <p><strong>DVD Release:</strong> {{ movie.dvd }}</p>
+        <p><strong>Box Office:</strong> {{ movie.box_office }}</p>
+{#        <p><strong>Production:</strong> {{ movie.production.name if movie.production }}</p>#}
+        <p><strong>Website:</strong> <a href="{{ movie.website }}">{{ movie.website }}</a></p>
+        <p><strong>Status:</strong> {{ movie.get_status_display }}</p>
+
+        <p><strong>Created On:</strong> {{ movie.created_on }}</p>
+        <p><strong>Last Updated:</strong> {{ movie.updated_on }}</p>
+    </div>
+
+    {% if movie.poster %}
+        <div class="movie-poster">
+            <img src="{{ movie.poster }}" alt="{{ movie.title }} Poster">
+        </div>
+    {% endif %}
+
+
 {% endblock %}
