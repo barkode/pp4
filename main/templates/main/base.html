@@ -1,10 +1,12 @@
 {% load static %}
+{% load movies_tags %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
 {% url 'movies:movie_catalog' as home_url %}
 {% url 'about:about' as about_url %}
 {% url 'about:contact_us' as contact_url %}
+{% movie_categories as genres %}
 
 
 <!DOCTYPE html>
@@ -78,7 +80,11 @@
                                            data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
                                         <ul class="dropdown-menu border-0 shadow bsb-zoomIn"
                                             aria-labelledby="blogDropdown">
-                                            <li><a class="dropdown-item" href="blog.html">News</a></li>
+                                            {% for genre in genres %}
+                                            <li><a class="dropdown-item" href="{% url 'movies:movie_catalog' %}">{{ genre.name }}</a></li>
+
+                                            {% endfor %}
+
                                             <li><a class="dropdown-item" href="single.html">Single Post</a></li>
                                             <li><a class="dropdown-item" href="page.html">Single Page</a></li>
                                         </ul>

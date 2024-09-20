@@ -6,4 +6,4 @@ register = template.Library()
 
 @register.simple_tag()
 def movie_categories():
-    return Genre.objects.all()
+    return Genre.objects.all().order_by('name')
