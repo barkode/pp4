@@ -15,5 +15,16 @@ class Profile(models.Model):
     location = models.CharField(max_length=255, blank=True)
     total_likes = models.IntegerField(default=0)
     total_favourites = models.IntegerField(default=0)
+
     def __str__(self):
         return str(self.user)
+
+    class PortfolioItem(models.Model):
+        user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="portfolio_items")
+        title = models.CharField(max_length=255)
+        description = models.TextField()
+        project_url = models.URLField(blank=True, null=True)
+        created_at = models.DateTimeField(auto_now_add=True)
+
+        def __str__(self):
+            return self.title
