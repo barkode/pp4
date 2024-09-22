@@ -21,6 +21,7 @@ from django.urls import path, include
 from app.settings import DEBUG
 
 urlpatterns = [
+    path("", include("main.urls", namespace="main")),
     path("movies/", include("movie.urls", namespace="movies")),
     path("about/", include("about.urls", namespace="about")),
     path("accounts/", include("allauth.urls")),

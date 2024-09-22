@@ -9,6 +9,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 # Create your views here.
+def index(request):
+    return render(request, "main/main.html")
+
 # Home page
 @login_required
 def home(request):
