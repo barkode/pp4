@@ -1,4 +1,5 @@
 {% block pagination %}
+{% load movies_tags %}
 
     {% if page_obj %}
         <nav aria-label="Page navigation example">
@@ -6,19 +7,19 @@
                 <div class="custom-shadow d-flex">
 
                     <li class="page-item {% if not page_obj.has_previous %}disabled{% endif %}">
-                        <a class="page-link" href="{% if page_obj.has_previous %}?page={{ page_obj.previous_page_number }}
+                        <a class="page-link" href="{% if page_obj.has_previous %}?{% change_params page=page_obj.previous_page_number %}
                             {% else %}#{% endif %}">Back</a>
                     </li>
                     {% for page in page_obj.paginator.page_range %}
                         {% if page >= page_obj.number|add:-3 and page <= page_obj.number|add:3 %}
                             <li class="page-item {% if page_obj.number == page %} active {% endif %}">
-                                <a class="page-link" href="?page={{ page }}">{{ page }}</a>
+                                <a class="page-link" href="?{% change_params page=page %}">{{ page }}</a>
                             </li>
                         {% endif %}
                     {% endfor %}
 
                     <li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
-                        <a class="page-link" href="{% if page_obj.has_next %}?page={{ page_obj.next_page_number }}
+                        <a class="page-link" href="{% if page_obj.has_next %}?{% change_params page=page_obj.next_page_number %}
                             {% else %}#{% endif %}">Next</a>
                     </li>
                 </div>

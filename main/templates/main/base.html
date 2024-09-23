@@ -76,9 +76,9 @@
                                            href="{% url 'movies:movie_catalog' genre_slug='all' %}">Home</a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#!" id="blogDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <p class="nav-link dropdown-toggle" id="blogDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Categories
-                                        </a>
+                                        </p>
                                         <ul class="dropdown-menu border-0 shadow" aria-labelledby="blogDropdown">
                                             <div class="container">
                                                 <div class="row">
@@ -116,6 +116,12 @@
                                                href="{% url 'account_login' %}" aria-current="page">Login</a>
                                         </li>
                                     {% endif %}
+                                    <li class="nav-item">
+                                        <form class="d-flex nav-link" role="search" action="{% url 'movies:movie_search' %}" method="get">
+                                            <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+                                            <button class="btn btn-outline-success text-white" type="submit">Search</button>
+                                        </form>
+                                    </li>
 
                                 </ul>
                             </div>

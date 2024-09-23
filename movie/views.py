@@ -1,19 +1,23 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, get_list_or_404
-from django.views import generic
-from unicodedata import category
 
 from .models import Movie
+from .utils import q_search
 
 
-def movie_catalog(request, genre_slug):
+def movie_catalog(request, genre_slug=None):
 
     # Get the current page number from the request
     page_number = int(request.GET.get('page', 1))
 
+    # Get the search parameter from query
+    query = request.GET.get('q', None)
+
     # Use get_list_or_404 to get the list of movies with status=1
     if genre_slug == 'all':
         movies_list = get_list_or_404(Movie.objects.filter(status=1))
+    elif query:
+        movies_list = q_search(query)
     else:
         movies_list = get_list_or_404(Movie.objects.filter(genres__slug=genre_slug))
 
