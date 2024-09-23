@@ -162,9 +162,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Cloudinary settings
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLOUD_NAME'),
+    'API_KEY': os.getenv('CLOUD_API_KEY'),
+    'API_SECRET': os.getenv('CLOUD_API_SECRET'),
+    }
+
 STORAGES = {
-    "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    'default': {
+        'BACKEND': 'cloudinary_storage.storage.MediaCloudinaryStorage',
     },
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
@@ -192,14 +199,6 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-#  Cloudinary settings
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': 'your_cloud_name',
-#     'API_KEY': 'your_api_key',
-#     'API_SECRET': 'your_api_secret'
-#     }
-
-# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

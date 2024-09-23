@@ -1,30 +1,41 @@
-from cloudinary import CloudinaryImage
-from cloudinary.models import CloudinaryField
-from django.contrib.auth.models import User
 from django.db import models
+from django.contrib.auth.models import User
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
-# Create your models here.
 
 class Profile(models.Model):
-    """
-    The model representing the user's profile.
-    """
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user_profile')
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    avatar = models.ImageField(upload_to='avatars/', blank=True, null=True)
     bio = models.TextField(max_length=500, blank=True)
-    profile_picture = CloudinaryField('profile_picture', default="images/profile_picture.jpg")
-    location = models.CharField(max_length=255, blank=True)
-    total_likes = models.IntegerField(default=0)
-    total_favourites = models.IntegerField(default=0)
 
     def __str__(self):
-        return str(self.user)
+        return self.user.username
 
-    class PortfolioItem(models.Model):
-        user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="portfolio_items")
-        title = models.CharField(max_length=255)
-        description = models.TextField()
-        project_url = models.URLField(blank=True, null=True)
-        created_at = models.DateTimeField(auto_now_add=True)
 
-        def __str__(self):
-            return self.title
+# Автоматически создавать/обновлять профиль при создании пользователя
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+
+@receiver(post_save, sender=User)
+def create_or_update_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+    instance.profile.save()
+
+class Favorite(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    item = models.CharField(max_length=200)  # Это может быть ссылка на продукт или другой объект
+
+    def __str__(self):
+        return self.item
+
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Comment by {self.user.username} on {self.created_at}"
