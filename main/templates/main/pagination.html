@@ -1,7 +1,7 @@
 {% block pagination %}
 {% load movies_tags %}
 
-    {% if page_obj %}
+    {% if page_obj and page_obj.paginator.num_pages > 1 %}
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center my-4">
                 <div class="custom-shadow d-flex">
