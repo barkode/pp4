@@ -1,4 +1,6 @@
+from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank, SearchHeadline
 from django.db.models import Q
+from urllib3 import request
 
 from .models import Movie
 
@@ -7,14 +9,9 @@ def q_search(query):
     if query.isdigit() and len(query) <= 4:
         return Movie.objects.filter(year=int(query))
 
-    keywords = [ word for word in query.split() if len(word) > 3 ]
+    vector = SearchVector('title', 'plot')
+    query = SearchQuery(query)
+    result = Movie.objects.annotate(rank=SearchRank(vector, query)).filter(rank__gt=0).order_by("-rank").distinct(
+        'rank')
 
-    q_objects = Q()
-
-    for token in keywords:
-        q_objects |= Q(title__icontains=token)
-        q_objects |= Q(plot__icontains=token)
-        q_objects |= Q(actors__name__icontains=token)
-        q_objects |= Q(genres__name__icontains=token)
-
-    return Movie.objects.filter(q_objects).distinct()
+    return result

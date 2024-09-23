@@ -1,7 +1,8 @@
 from django import template
+from django.shortcuts import get_list_or_404
 from django.utils.http import urlencode
 
-from movie.models import Genre
+from movie.models import Genre, Movie
 
 register = template.Library()
 
@@ -11,7 +12,7 @@ def movie_categories():
 
 @register.simple_tag()
 def movie_categories_random():
-    return Genre.objects.all().order_by('?')
+    return get_list_or_404(Movie.objects.filter(status=1).order_by('?'))
 
 @register.simple_tag(takes_context=True)
 def change_params(context, **kwargs):
