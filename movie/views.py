@@ -1,5 +1,7 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, get_list_or_404
+from django.contrib import messages
+from .forms import MovieCommentForm
 
 from .models import Movie
 from .utils import q_search
@@ -35,10 +37,30 @@ def movie_catalog(request, genre_slug=None):
 
 def movie_detail(request, movie_slug):
 
-
     movie = get_object_or_404(Movie, slug=movie_slug)
 
-    context = {'movie': movie}
+    comments = movie.movie_comments.filter(approved=True).order_by("-created_on")
+    comment_count = comments.count()
+
+    if request.method == "POST":
+        comment_form = MovieCommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.author = request.user
+            comment.post = movie
+            comment.save()
+    else:
+        comment_form = MovieCommentForm()
+
+    context = {'movie': movie,
+               "comments": comments,
+               "comment_count": comment_count,
+               "comment_form": comment_form,}
+
+    messages.add_message(
+        request, messages.SUCCESS,
+        'Comment submitted and awaiting approval'
+        )
 
     return render(
         request,

@@ -9,6 +9,19 @@ from django.utils.translation import gettext, gettext_lazy as _
 
 # Default user creation form
 class SignUpForm(UserCreationForm):
+    """
+        SignUpForm class extending UserCreationForm for user registration.
+
+        Fields:
+            password1: Password field with 'Password' label, using PasswordInput widget with form-control class.
+            password2: Password confirmation field with 'Confirm Password (again)' label, using PasswordInput widget with form-control class.
+
+        Meta:
+            model: Specifies the User model.
+            fields: List of fields to be included in the form - username, first_name, last_name, email.
+            labels: Custom labels for first_name, last_name, and email fields.
+            widgets: Custom widgets for username, first_name, last_name, and email fields to include form-control class.
+    """
     password1 = forms.CharField(
         label="Password", widget=forms.PasswordInput(attrs={"class": "form-control"})
         )
@@ -33,6 +46,13 @@ class SignUpForm(UserCreationForm):
 
 # Default authentication form
 class LoginForm(AuthenticationForm):
+    """
+    LoginForm class extends the AuthenticationForm to provide custom styling and widget attributes for the username and password fields.
+
+    Attributes:
+        username: A UsernameField instance using a TextInput widget with autofocus and CSS class "form-control".
+        password: A CharField instance for the password, with a PasswordInput widget that has the attributes for autocomplete set to "current-password" and CSS class "form-control".
+    """
     username = UsernameField(
         widget=forms.TextInput(attrs={"autofocus": True, "class": "form-control"})
         )
