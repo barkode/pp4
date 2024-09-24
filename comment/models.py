@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from app import settings
 from movie.models import Movie
 
 # Create your models here.
@@ -15,7 +16,7 @@ class MovieComment(models.Model):
         Movie, on_delete=models.CASCADE, related_name="movie_comments"
     )
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="comment_author"
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="comment_author"
     )
     body = models.TextField()
     approved = models.BooleanField(default=False)
