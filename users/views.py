@@ -1,9 +1,9 @@
-from django.contrib import auth
+from django.contrib import auth, messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from users.forms import UserLoginForm, UserRegisterForm
+from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm
 
 
 # Create your views here.
@@ -31,6 +31,7 @@ def login(request):
             user = auth.authenticate(username=username, password=password)
             if user:
                 auth.login(request, user)
+                messages.success(request, f"{username} you logged in Successfully !!")
                 return HttpResponseRedirect(reverse('movies:movie_catalog'))
     else:
         form = UserLoginForm()
@@ -63,6 +64,7 @@ def registration(request):
             form.save()
             user = form.instance
             auth.login(request, user)
+            messages.success(request, f"Account created for {user.username} !!")
             return HttpResponseRedirect(reverse('movies:movie_catalog'))
     else:
         form = UserRegisterForm()
@@ -75,20 +77,17 @@ def registration(request):
 
 
 def profile(request):
-    """
-    Handles the rendering of the user's profile page.
-
-    Parameters:
-     request: HttpRequest object containing metadata about the request.
-
-    Returns:
-     HttpResponse object rendering the 'users/profile.html' template with the provided context.
-
-    The context contains:
-     - title: A string specifying the title of the profile page.
-    """
+    if request.method == "POST":
+        form = UserProfileForm(data=request.POST, instance=request.user, files=request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f"Profile updated for {request.user.username} !!")
+            return HttpResponseRedirect(reverse('users:profile'))
+    else:
+        form = UserProfileForm(instance=request.user)
     context = {
         "title": "StoreLinks - Profile",
+        "form": form,
         }
     return render(request, "users/profile.html", context)
 

@@ -132,25 +132,6 @@
                                             </ul>
                                         </li>
                                     {% endif %}
-
-                                    {#                                    {% if user.is_authenticated %}#}
-                                    {#                                        <li class="nav-item">#}
-                                    {#                                            <a class="nav-link {% if request.path == profile_url %}active{% endif %}" href="#">Profile</a>#}
-                                    {#                                        </li>#}
-                                    {#                                        <li class="nav-item">#}
-                                    {#                                            <a class="nav-link {% if request.path == logout_url %}active{% endif %}"#}
-                                    {#                                               href="{% url 'account_logout' %}" aria-current="page">Logout</a>#}
-                                    {#                                        </li>#}
-                                    {#                                    {% else %}#}
-                                    {#                                        <li class="nav-item">#}
-                                    {#                                            <a class="nav-link {% if request.path == signup_url %}active{% endif %}"#}
-                                    {#                                               href="{% url 'account_signup' %}" aria-current="page">Register</a>#}
-                                    {#                                        </li>#}
-                                    {#                                        <li class="nav-item">#}
-                                    {#                                            <a class="nav-link {% if request.path == login_url %}active{% endif %}"#}
-                                    {#                                               href="{% url 'account_login' %}" aria-current="page">Login</a>#}
-                                    {#                                        </li>#}
-                                    {#                                    {% endif %}#}
                                     <li class="nav-item">
                                         <form class="d-flex nav-link" role="search"
                                               action="{% url 'movies:movie_search' %}" method="get">
@@ -171,22 +152,6 @@
     </div>
 
 </header>
-
-<!-- displaying Django messages -->
-{#<div class="container">#}
-{#    <div class="row">#}
-{#        <div class="col-md-8 offset-md-2">#}
-{#            {% for message in messages %}#}
-{#                <div class="alert {{ message.tags }} alert-dismissible#}
-{#        fade show" id="msg" role="alert">#}
-{#                    {{ message | safe }}#}
-{#                    <button type="button" class="btn-close"#}
-{#                            data-bs-dismiss="alert" aria-label="Close"></button>#}
-{#                </div>#}
-{#            {% endfor %}#}
-{#        </div>#}
-{#    </div>#}
-{#</div>#}
 
 <main id="main">
     <section>
