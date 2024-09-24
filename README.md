@@ -141,7 +141,7 @@ The database schema outlines the structure and relationships between key tables 
 This schema was generated using [drawsql.app](https://drawsql.app/).
 
 
-![Database Schema]()
+![Database Schema](docs/base-sql-database-structure.png)
 
 [Back to top](#contents)
 
@@ -306,8 +306,7 @@ Testing summary and results can be found in [TESTING.md](TESTING.md) file.
 - [Django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html): Authentication library used to create user accounts, providing features such as registration, login, and social authentication.
 - [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/): Used to manage Django forms, making form rendering in templates simpler and more elegant.
 - [WhiteNoise](https://pypi.org/project/whitenoise/): Designed to serve static files for Django applications.
-- [Humanize](https://pypi.org/project/humanize/): Used for turning a number into a fuzzy human-readable duration ("3 minutes ago")
-- [Django-Summernote](https://pypi.org/project/django-summernote/): A library that integrates the Summernote WYSIWYG editor into Django forms, allowing for rich-text editing.
+
 
 ### Programs
 
