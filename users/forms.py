@@ -70,6 +70,32 @@ class UserRegisterForm(UserCreationForm):
 
 
 class UserProfileForm(UserChangeForm):
+    """
+
+         class UserProfileForm(UserChangeForm):
+
+             A form for updating user profiles, inheriting from UserChangeForm.
+             This form includes the fields for the user's profile image, first name, last name, email, and username.
+
+             class Meta:
+                 model = User
+                 fields = ('image', 'first_name', 'last_name', 'email', 'username')
+
+    image = forms.ImageField(required=False)
+        An optional field for the user's profile image.
+
+    first_name = forms.CharField()
+        A required field for the user's first name.
+
+    last_name = forms.CharField()
+        A required field for the user's last name.
+
+    email = forms.EmailField()
+        A required field for the user's email address.
+
+    username = forms.CharField()
+        A required field for the user's username.
+    """
     class Meta:
         model = User
         fields = ('image', 'first_name', 'last_name', 'email', 'username' )

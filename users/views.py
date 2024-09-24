@@ -10,18 +10,18 @@ from users.forms import UserLoginForm, UserRegisterForm
 
 def login(request):
     """
-    Handles user login functionality.
+    Handles the login functionality for users.
 
-    The function processes POST requests containing user credentials, validates them,
-    authenticates the user, and upon successful authentication, logs in the user and
-    redirects to a specified URL.
+    If a POST request is received with user login details, it validates the form and authenticates the user.
+    If authentication is successful, the user is logged in and redirected to the movie catalog page.
+    Otherwise, an empty login form is provided for GET requests.
 
-    Parameters:
-        request: The HttpRequest object containing metadata about the request.
+    Arguments:
+        request: HttpRequest object containing metadata about the request.
 
     Returns:
-        HttpResponse: Redirects to the 'movie_catalog' page upon successful login.
-        render: Renders the login page with the login form for GET requests or invalid POST requests.
+        HttpResponseRedirect if the user is successfully authenticated and logged in.
+        Rendered HTML template with login form for GET requests or failed logins.
     """
     if request.method == "POST":
         form = UserLoginForm(data=request.POST)
@@ -44,6 +44,19 @@ def login(request):
 
 
 def registration(request):
+    """
+    Handles user registration by processing a POST request with user data.
+    Upon successful form validation and user account creation, logs the user in
+    and redirects them to the movie catalog page. If the request is not a POST,
+    initializes an empty registration form and displays it on the registration page.
+
+    Args:
+        request: HttpRequest object containing metadata about the request.
+
+    Returns:
+        HttpResponse object that renders the registration page with context,
+        or redirects to the movie catalog upon successful registration.
+    """
     if request.method == "POST":
         form = UserRegisterForm(data=request.POST)
         if form.is_valid():
@@ -62,6 +75,18 @@ def registration(request):
 
 
 def profile(request):
+    """
+    Handles the rendering of the user's profile page.
+
+    Parameters:
+     request: HttpRequest object containing metadata about the request.
+
+    Returns:
+     HttpResponse object rendering the 'users/profile.html' template with the provided context.
+
+    The context contains:
+     - title: A string specifying the title of the profile page.
+    """
     context = {
         "title": "StoreLinks - Profile",
         }
@@ -69,5 +94,14 @@ def profile(request):
 
 
 def logout(request):
+    """
+    Logs out the current authenticated user and redirects to the movie catalog.
+
+    Parameters:
+    request (HttpRequest): The HTTP request object.
+
+    Returns:
+    HttpResponseRedirect: A redirect to the movie catalog page.
+    """
     auth.logout(request)
     return HttpResponseRedirect(reverse('movies:movie_catalog'))
