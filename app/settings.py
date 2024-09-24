@@ -72,9 +72,7 @@ INSTALLED_APPS = [
     "about",
     "movie",
     "comment",
-    "user_favorites",
-    "wishlist",
-    "user_profile",
+    "users",
 ]
 
 SITE_ID = 1
