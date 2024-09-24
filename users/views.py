@@ -1,4 +1,5 @@
 from django.contrib import auth, messages
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -75,8 +76,27 @@ def registration(request):
         }
     return render(request, "users/registration.html", context)
 
-
+@login_required
 def profile(request):
+    """
+    Handles the profile view for updating user profile information.
+
+    Args:
+        request (HttpRequest): The HTTP request object. It can be either GET or POST.
+
+    POST:
+        Processes the updated user profile form. If the form is valid, it saves the changes and shows a success message. Redirects to the profile page after successful update.
+
+    GET:
+        Displays the user profile form with the current user information prefilled.
+
+    Context:
+        title (str): The title of the web page.
+        form (UserProfileForm): The form for updating the user profile.
+
+    Returns:
+        HttpResponse: Renders the `profile.html` template with the given context.
+    """
     if request.method == "POST":
         form = UserProfileForm(data=request.POST, instance=request.user, files=request.FILES)
         if form.is_valid():
@@ -91,7 +111,7 @@ def profile(request):
         }
     return render(request, "users/profile.html", context)
 
-
+@login_required
 def logout(request):
     """
     Logs out the current authenticated user and redirects to the movie catalog.
