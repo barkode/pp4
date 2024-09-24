@@ -4,7 +4,7 @@ from django.db import models
 
 # Create your models here.
 class User(AbstractUser):
-    image = models.ImageField(upload_to="settings.PROJECT_NAME/profile_images", null=True, blank=True, verbose_name="Avatar")
+    image = models.ImageField(upload_to="profile_images", null=True, blank=True, verbose_name="Avatar")
     
     class Meta:
         db_table="user"
