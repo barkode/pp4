@@ -7,6 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 notification.style.display = 'none';
             }, 500); // Після завершення перехідного періоду
-        }, 7000);
+        }, 5000);
     }
 });
