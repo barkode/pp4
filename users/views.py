@@ -33,6 +33,9 @@ def login(request):
             if user:
                 auth.login(request, user)
                 messages.success(request, f"{username} you logged in Successfully !!")
+                if request.POST.get('next', None):
+                    return HttpResponseRedirect(request.POST.get['next'])
+
                 return HttpResponseRedirect(reverse('movies:movie_catalog'))
     else:
         form = UserLoginForm()
@@ -122,5 +125,8 @@ def logout(request):
     Returns:
     HttpResponseRedirect: A redirect to the movie catalog page.
     """
+    messages.success(
+        request,
+        f"You have been logged out successfully !!")
     auth.logout(request)
     return HttpResponseRedirect(reverse('movies:movie_catalog'))
