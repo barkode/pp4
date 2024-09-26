@@ -1,2 +1,45 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load movies_tags %}
+{% movie_categories_random as page_obj %}
 
+{% block content %}
+    <!-- Card 5 - Bootstrap Brain Component -->
+    <section class="py-3 py-md-5 py-xl-8 bg-white">
+        <div class="container overflow-hidden">
+            <div class="row gy-4 gy-xxl-5">
+                {% for movie in page_obj %}
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                        <div class="card border border-dark"
+                             style="--bs-card-border-radius: 0; --bs-card-inner-border-radius: 0;">
+                            <figure class="card-img-top m-0 overflow-hidden bsb-overlay-hover"
+                                    style="height: 380px;">
+                                <a href="{% url 'movies:movie_detail' movie.slug %}">
+                                    <img class="img-fluid w-100 h-100 bsb-scale bsb-hover-scale-up" loading="lazy"
+                                         src="{{ movie.poster }}" alt="{{ movie.title }}"
+                                         onerror="this.onerror=null; this.src='{% static 'images/no_image_poster.png' %}';"
+                                         style="object-fit: cover;">
+                                </a>
+                                <figcaption class="p-3">
+                                    <h2 class="h3 text-white text-center fw-bold mb-1 bsb-hover-fadeInRight">
+                                        {{ movie.title }}
+                                    </h2>
+                                    {# <p class="fs-7 mb-4 text-white opacity-75 bsb-hover-fadeInLeft">{{ movie.genre }}</p> #}
+                                    <p class="fs-9 m-0 px-4 text-white text-center bsb-hover-fadeInUp">
+                                        {{ movie.plot }}
+                                    </p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+{% endblock %}
