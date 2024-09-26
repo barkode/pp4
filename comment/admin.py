@@ -7,7 +7,15 @@ from .models import MovieComment
 
 @admin.register(MovieComment)
 class MovieCommentAdmin(admin.ModelAdmin):
-    """Allows admin to manage comments on insights via the admin panel"""
+    """
+
+    MovieCommentAdmin defines the admin interface settings for the MovieComment model.
+
+    Attributes:
+        list_display (list): Specifies the fields to be displayed in the list view.
+        list_filter (tuple): Defines the fields to filter the list view by.
+        search_fields (list): Specifies the fields to include in the search functionality.
+    """
     list_display = ['body', 'author', 'created_on']
     list_filter = ('created_on', 'author')
     search_fields = ['author', 'body', ]

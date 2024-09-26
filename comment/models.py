@@ -8,10 +8,24 @@ from movie.models import Movie
 
 class MovieComment(models.Model):
     """
-    Stores a simple comment entry related to :model:`auth.User`
-    and :model:`Movie`.
-    """
+        A model representing a comment made on a movie.
 
+        Attributes:
+        movie: ForeignKey to the Movie model.
+        author: ForeignKey to the user model defined in settings.AUTH_USER_MODEL.
+        body: Text content of the comment.
+        approved: Boolean indicating whether the comment has been approved.
+        created_on: DateTime indicating when the comment was created.
+
+        Meta:
+        db_table: Name of the database table.
+        verbose_name: Singular name for the model.
+        verbose_name_plural: Plural name for the model.
+        ordering: Default ordering for querying objects.
+
+        Methods:
+        __str__: Returns a string representation of the comment.
+    """
     movie = models.ForeignKey(
         Movie, on_delete=models.CASCADE, related_name="movie_comments"
     )
