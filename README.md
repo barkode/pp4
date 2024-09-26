@@ -3,7 +3,7 @@
 ![Main Image]()
 
 
-[Deployed Link]()
+[Deployed Link](https://storelinks-ff093b7a4c54.herokuapp.com/)
 
 Project description
 
@@ -78,12 +78,12 @@ Project description
 
 ### Overview
 
-Agile methodology is a project management approach that emphasizes flexibility, collaboration, and iterative progress towards a well-defined goal. It is particularly effective in software development where requirements and solutions evolve through the collaborative effort of self-organizing cross-functional teams. Agile methodologies aim to deliver small, incremental changes in a product to improve quality and adaptability to changing needs.
+[Agile methodology](https://en.wikipedia.org/wiki/Agile_software_development) is a project management approach that emphasizes flexibility, collaboration, and iterative progress towards a well-defined goal. It is particularly effective in software development where requirements and solutions evolve through the collaborative effort of self-organizing cross-functional teams. Agile methodologies aim to deliver small, incremental changes in a product to improve quality and adaptability to changing needs.
 
 
 ### MoSCoW Prioritization
 
-The MoSCoW prioritization technique is used to determine the importance of various features and tasks in a project. This method categorizes features into four groups: Must Have, Should Have, Could Have, and Won't Have. This helps in effective time management and ensures that the most critical functionalities are delivered first.
+The [MoSCoW prioritization technique](https://en.wikipedia.org/wiki/MoSCoW_method) is used to determine the importance of various features and tasks in a project. This method categorizes features into four groups: Must Have, Should Have, Could Have, and Won't Have. This helps in effective time management and ensures that the most critical functionalities are delivered first.
 
 ### GitHub Projects
 
@@ -140,8 +140,26 @@ The database schema outlines the structure and relationships between key tables 
 
 This schema was generated using [drawsql.app](https://drawsql.app/).
 
+<details>
+<summary>
+<b>The database scheme that was created during project planning.</b>
+</summary>
 
-![Database Schema](docs/base-sql-database-structure.png)
+![Database Schema](docs/base-sql-database-structure-before.png)
+
+</details>
+<br/>
+
+
+<details>
+<summary>
+<b>Database scheme after creating MVP.</b>
+</summary>
+
+![Database Schema](docs/base-sql-database-structure-after.png)
+
+</details>
+<br/>
 
 [Back to top](#contents)
 
