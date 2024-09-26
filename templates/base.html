@@ -3,7 +3,6 @@
 {% url 'main:index' as home_url %}
 {% url 'about:about' as about_url %}
 {% url 'about:contact_us' as contact_url %}
-{#{% url 'profile:' as profile_url %}#}
 {% movie_categories as genres %}
 
 
@@ -75,12 +74,13 @@
                                            aria-current="page"
                                            href="{% url 'main:index' %}">Home</a>
                                     </li>
+
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" id="categoriesDropdown" role="button"
                                            data-bs-toggle="dropdown" aria-expanded="false">
                                             Categories
                                         </a>
-                                        <ul class="dropdown-menu border-0 shadow" aria-labelledby="categoriesDropdown">
+                                        <ul class="dropdown-menu border-0 shadow custom-width" aria-labelledby="categoriesDropdown">
                                             <div class="container">
                                                 <div class="row">
                                                     {% for genre in genres %}
@@ -95,6 +95,8 @@
                                             </div>
                                         </ul>
                                     </li>
+
+
                                     <li class="nav-item">
                                         <a class="nav-link {% if request.path == about_url %}active{% endif %} "
                                            href="{% url 'about:about' %}">About</a>
