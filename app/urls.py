@@ -21,13 +21,11 @@ from django.urls import path, include
 from app.settings import DEBUG
 
 urlpatterns = [
-    # path("", include("main.urls", namespace="main")),
-    # path("accounts/", include("allauth.urls")),
     path("about/", include("about.urls", namespace="about")),
     path("admin/", admin.site.urls),
     path("movies/", include("movie.urls", namespace="movies")),
     path("user/", include("users.urls", namespace="user")),
-    path("", include("movie.urls", namespace="movies")),
+    path("", include("main.urls", namespace="main")),
 ]
 
 if DEBUG:
