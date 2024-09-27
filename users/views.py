@@ -36,7 +36,7 @@ def login(request):
                 if request.POST.get('next', None):
                     return HttpResponseRedirect(request.POST.get['next'])
 
-                return HttpResponseRedirect(reverse('movies:movie_catalog'))
+                return HttpResponseRedirect(reverse('main:index'))
     else:
         form = UserLoginForm()
 
@@ -69,7 +69,7 @@ def registration(request):
             user = form.instance
             auth.login(request, user)
             messages.success(request, f"Account created for {user.username} !!")
-            return HttpResponseRedirect(reverse('movies:movie_catalog'))
+            return HttpResponseRedirect(reverse('main:index'))
     else:
         form = UserRegisterForm()
 
@@ -129,4 +129,4 @@ def logout(request):
         request,
         f"You have been logged out successfully !!")
     auth.logout(request)
-    return HttpResponseRedirect(reverse('movies:movie_catalog'))
+    return HttpResponseRedirect(reverse('main:index'))
