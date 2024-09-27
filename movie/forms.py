@@ -1,5 +1,6 @@
-from comment.models import MovieComment
 from django import forms
+
+from movie.models import MovieComment
 
 
 class MovieCommentForm(forms.ModelForm):

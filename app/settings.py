@@ -71,7 +71,6 @@ INSTALLED_APPS = [
     "main",
     "about",
     "movie",
-    "comment",
     "users",
 ]
 
