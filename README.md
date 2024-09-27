@@ -288,10 +288,17 @@ This schema was generated using [drawsql.app](https://drawsql.app/).
 
 ## Design Choices
 
+The site is made in black and white with color accents on some elements. A simple design with thin lines and not many elements on the page was chosen.
+
 ### Typography
 
+[Inter](https://fonts.google.com/specimen/Inter) is one of the world's most used typefaces with applications ranging from computer interfaces, advertising & airports, to NASA instrumentation & medical equipment.
 
 ### Colour Scheme
+
+
+
+![Color scheme](docs/pallete.png)
 
 [Back to top](#contents)
 
@@ -300,6 +307,9 @@ This schema was generated using [drawsql.app](https://drawsql.app/).
 [Back to top](#contents)
 
 ### Responsiveness
+The site was developed using the Bootstrap 5 CSS framework. Bootstrap includes six default breakpoints, sometimes referred to as grid tiers, for building responsively. These breakpoints can be customized if you’re using our source Sass files.
+
+![Breakpoints](docs/brackpoints.png)
 
 
 [Back to top](#contents)
@@ -446,7 +456,6 @@ Testing summary and results can be found in [TESTING.md](TESTING.md) file.
 
 - [Django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html): Authentication library used to create user accounts, providing features such as registration, login, and social authentication.
 - [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/): Used to manage Django forms, making form rendering in templates simpler and more elegant.
-- [WhiteNoise](https://pypi.org/project/whitenoise/): Designed to serve static files for Django applications.
 
 
 ### Programs
@@ -482,6 +491,8 @@ Testing summary and results can be found in [TESTING.md](TESTING.md) file.
 - Insights content and visuals:
 
     - [Perplexity](https://www.perplexity.ai/)
+    - [ChatGPT](https://chatgpt.com/)
+    - [phind](https://www.phind.com/)
 
 
 - Learning content:
@@ -489,9 +500,8 @@ Testing summary and results can be found in [TESTING.md](TESTING.md) file.
     - [CodePen](https://codepen.io/pen/)
     - [Automated Testing Tutorial](https://www.youtube.com/watch?v=qwypH3YvMKc&list=PLbpAWbHbi5rMF2j5n6imm0enrSD9eQUaM)
     - [Django Documentation](https://docs.djangoproject.com/en/4.2/)
-    - [Dev Community](https://dev.to/lindaojo/how-to-improve-lighthouse-score-accessibility-514e)
     - [Boostrap Docs](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
-    - [Dennis Ivy - Python Django 7 Hour Course](https://www.youtube.com/watch?v=PtQiiknWUcI)
+    - [Hana Belay Articles](https://dev.to/earthcomfy/creating-a-django-registration-login-app-part-i-1di5)
 
 - Debugging Issues:
 
