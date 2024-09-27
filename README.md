@@ -45,10 +45,6 @@ Our goal is to help users find good content, whether it's movies, series, or mus
     * [GitHub Projects](#github-projects)
     * [EPICS](#epics)
     * [User Stories](#user-stories)
-    * [Developer Stories](#developer-stories)
-    * [Visitor Stories](#visitor-stories)
-    * [Registered User Stories](#registered-user-stories)
-    * [Admin User Stories](#admin-user-stories)
 - [Website Goals and Objectives](#website-goals-and-objectives)
 - [Target Audience](#target-audience)
 - [Wireframes](#wireframes)
@@ -69,22 +65,8 @@ Our goal is to help users find good content, whether it's movies, series, or mus
     * [Custom Error Pages](#custom-error-pages)
     * [User Account Pages](#user-account-pages)
     * [Profile Page](#profile-page)
-    * [Add Insight](#add-insight)
-    * [Edit Insight](#edit-insight)
-    * [Delete Insight](#delete-insight)
-    * [Pending Approvals](#pending-approvals)
-    * [Insight Card](#insight-card)
-    * [Browse Insights](#browse-insights)
-    * [Insight Details](#insight-details)
-    * [User Interactions](#user-interactions)
-    * [Custom Error Pages](#custom-error-pages)
-- [Django Admin Portal](#django-admin-portal)
+- [Django Administrator page](#django-administrator-page)
 - [Future Features](#future-features)
-    + [Enhanced User Profiles](#enhanced-user-profiles)
-    + [Advanced Insights Management](#advanced-insights-management)
-    + [Community Interaction](#community-interaction)
-    + [Content Discovery](#content-discovery)
-    + [Accessibility and Inclusivity](#accessibility-and-inclusivity)
 - [Deployment](#deployment)
     * [To deploy the project to Heroku](#to-deploy-the-project-to-heroku)
       * [Step 1 Create a New Heroku App](#step-1-create-a-new-heroku-app)
@@ -119,38 +101,29 @@ The [MoSCoW prioritization technique](https://en.wikipedia.org/wiki/MoSCoW_metho
 
 Using GitHub Projects, tasks are managed and progress tracked through project boards. Each board will represent an EPIC, with columns for tasks, their statuses (To Do, In Progress, On Hold, Done, Bugs). Issue labels include the user, prioritization and sprints.
 
-![Kanban Board]()
+![Kanban Board](docs/kanban.png)
 
 ### EPICS
 
 Epic is a large body of work that is broken down into user stories. Each Epic in this project represents a key aspect of the platform's development and ensures comprehensive coverage of the required functionalities.
 
-- [EPIC 1]()
-- [EPIC 2]()
-- [EPIC 3]()
-- [EPIC 4]()
-- [EPIC 5]()
-- [EPIC 6]()
-- [EPIC 7]()
-- [EPIC 8]()
+- [EPIC 1](https://github.com/barkode/storelinks/issues/4)
+- [EPIC 2](https://github.com/barkode/storelinks/issues/5)
+- [EPIC 3](https://github.com/barkode/storelinks/issues/20)
+- [EPIC 4](https://github.com/barkode/storelinks/issues/22)
+- [EPIC 5](https://github.com/barkode/storelinks/issues/24)
+- [EPIC 6](https://github.com/barkode/storelinks/issues/25)
+- [EPIC 7](https://github.com/barkode/storelinks/issues/26)
+- [EPIC 8](https://github.com/barkode/storelinks/issues/27)
 
 ### User Stories
 
 With an emphasis on delivering a seamless user experience, the goal of this project is to provide a comprehensive platform that serves both visitors and registered users. The platform will allow for the development and maintenance of content, present developer profiles, and provide opportunities for interaction.  The following user stories outline the essential functionalities and the rationale behind them.
 
-### Developer Stories
-
-### Unregistered User Stories
-
-### Registered User Stories
-
 - As a registered user, I want to be able to log in and out of my account so that I can use the platform.
 - As a registered user, I want to manage my profile so that I have control of the information held on the platform.
 - As a registered user, I want to be able to comment on posts so that provide feedback to authors.
 - As a registered user, I want to be able to delete and edit comments so that I can control my engagement on the platform.
-
-### Administrator User Stories
-
 - As an Administrator, I want the ability to perform all CRUD (Create, Read, Update, Delete) operations so that manually manage, control and edit content.
 - As an Administrator, I want to approve comments and posts so that I can ensure content quality and appropriateness before it is published.
 
@@ -435,6 +408,12 @@ Made pages for errors 404, 403, 500. Used a simple design. The user is presented
 [Back to top](#contents)
 
 ## Future Features
+
+- Add the ability to add movies to your favorites list.
+- Add an option for users to rate.
+- Add the ability to create your own playlists.
+- Add a music library.
+- Add synchronization with API services.
 
 [Back to top](#contents)
 
