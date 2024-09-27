@@ -3,8 +3,6 @@
 
 Return back to the [README.md](README.md) file.
 
-![Main Image]()
-
 # Contents
 
 - [Responsiveness Tests](#responsiveness-tests)
@@ -15,10 +13,7 @@ Return back to the [README.md](README.md) file.
     * [Python](#python)
     * [Python (Unit Testing)](#python--unit-testing-)
 - [Manual Testing](#manual-testing)
-- [Role-based Restrictions](#role-based-restrictions)
 - [Bugs](#bugs)
-- [Browser Compatibility](#browser-compatibility)
-- [User Story Testing](#user-story-testing)
 - [Lighthouse Testing](#lighthouse-testing)
 - [Accessibility Testing](#accessibility-testing)
 
@@ -178,15 +173,6 @@ There are several runs in the project that could not be fixed in time.
 The styles on the form for adding comments are broken.
 The list of comments made by the user is not displayed.
 When logging in, a message appears that the comment is being viewed.
-
-## Browser Compatibility
-
-The deployed project was tested on the most popular browsers for compatibility issues.
-No major issues identified.
-
-[Browser Testing Results]()
-
-
 
 ## Lighthouse Testing
 
