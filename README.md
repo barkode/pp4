@@ -318,11 +318,21 @@ The site was developed using the Bootstrap 5 CSS framework. Bootstrap includes s
 
 ### User Authentication
 
+- New user registration and existing user login were done using standard Django tools.
+
 ### Password Management
+ 
+- Utilize Django's built-in tools for password management to securely hash and store passwords.
+
+- Implement robust password policies to strengthen the security of user accounts.
 
 ### Form Validation
 
+Validation of forms is performed both on the client side using the built-in capabilities of the browser (html), and on the server side using the database.
+
 ### Database Security
+
+All important information for database access is stored in a virtual environment. The key files are stored in an .env file. The file itself is added to the list of ignored files.
 
 [Back to top](#contents)
 
