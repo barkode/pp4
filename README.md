@@ -299,6 +299,7 @@ All the movie information was taken from the [example database json file](https:
 ## Design Choices
 
 The site is made in black and white with color accents on some elements. A simple design with thin lines and not many elements on the page was chosen.
+The design of the site is based on a [template that can be downloaded for free](https://bootstrapbrain.com/template/free-bike-repair-bootstrap-html-website-template-presta/).
 
 ### Typography
 
@@ -313,6 +314,8 @@ The site is made in black and white with color accents on some elements. A simpl
 [Back to top](#contents)
 
 ### Images
+
+All movie posters are downloaded from a remote server. The paths to these images were taken from the example database.
 
 [Back to top](#contents)
 
@@ -480,6 +483,7 @@ Testing summary and results can be found in [TESTING.md](TESTING.md) file.
 
 ### Programs
 
+- [visily](https://app.visily.ai/) - ai tool to generate wireframe images.
 - [Balsamiq](https://balsamiq.com/): Wireframing tool used to generate wireframe images, allowing for quick and easy visualization of the application's layout and design.
 - [Bootstrap 5](https://getbootstrap.com/docs/45/getting-started/introduction/): CSS framework used for developing responsiveness and styling, offering a wide range of pre-designed components and utilities.
 - [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/): Used for overall development and tweaking, including testing responsiveness, debugging, and performance profiling.
