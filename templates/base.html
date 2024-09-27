@@ -76,7 +76,7 @@
                                     </li>
 
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" id="categoriesDropdown" role="button"
+                                        <a class="nav-link dropdown-toggle {% if request.path == "movie/" %}active{% endif %}" id="categoriesDropdown" role="button"
                                            data-bs-toggle="dropdown" aria-expanded="false">
                                             Categories
                                         </a>
@@ -84,9 +84,10 @@
                                             <div class="container">
                                                 <div class="row">
                                                     {% for genre in genres %}
+                                                        {% url 'movies:movie_genre' genre.slug as genre_url %}
                                                         <div class="col-lg-4 col-md-6">
                                                             <li>
-                                                                <a class="dropdown-item"
+                                                                <a class="dropdown-item {% if request.path == genre_url %}active{% endif %}"
                                                                    href="{% url 'movies:movie_genre' genre.slug %}">{{ genre.name }}</a>
                                                             </li>
                                                         </div>

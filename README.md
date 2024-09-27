@@ -352,8 +352,20 @@ All important information for database access is stored in a virtual environment
 ## Features
 
 ### Header
+So I used the Bootstrap5 css framework so the site looks good on both mobile and desktop. Implemented a drop-down list for searching movies by category. There is also a search by movie titles, years of release and content.
+<details><summary><b>Header Desktop</b></summary>
 
-<details><summary><b>Header</b></summary>
+![header mobile 1](docs/hd-1.png)
+![header mobile 1](docs/hd-2.png)
+![header mobile 1](docs/hd-3.png)
+
+</details><br/>
+
+<details><summary><b>Header Mobile</b></summary>
+
+![header mobile 1](docs/hm-1.png)
+![header mobile 1](docs/hm-2.png)
+![header mobile 1](docs/hm-3.png)
 
 </details><br/>
 
@@ -361,16 +373,28 @@ All important information for database access is stored in a virtual environment
 
 <details><summary><b>Footer</b></summary>
 
+![Footer mobile](docs/fm-1.png)
+
+![Footer Desktop](docs/fd-1.png)
 
 </details><br/>
 
 ### Custom Error Pages
 
+<details><summary><b>Custom error pages</b></summary>
+
+
+</details><br/>
 
 [Back to top](#contents)
 
 ## Django Administrator page
 
+<details><summary><b>Admin panel</b></summary>
+
+![Admin panel](docs/ap-1.png)
+
+</details><br/>
 
 [Back to top](#contents)
 

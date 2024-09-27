@@ -19,3 +19,7 @@ def change_params(context, **kwargs):
     query = context['request'].GET.dict()
     query.update(kwargs)
     return urlencode(query)
+
+@register.filter
+def url_contains_genre(path, genres):
+    return any(genre.get_absolute_url() in path for genre in genres)
