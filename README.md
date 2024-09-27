@@ -144,7 +144,15 @@ With an emphasis on delivering a seamless user experience, the goal of this proj
 
 ### Registered User Stories
 
+- As a registered user, I want to be able to log in and out of my account so that I can use the platform.
+- As a registered user, I want to manage my profile so that I have control of the information held on the platform.
+- As a registered user, I want to be able to comment on posts so that provide feedback to authors.
+- As a registered user, I want to be able to delete and edit comments so that I can control my engagement on the platform.
+
 ### Administrator User Stories
+
+- As an Administrator, I want the ability to perform all CRUD (Create, Read, Update, Delete) operations so that manually manage, control and edit content.
+- As an Administrator, I want to approve comments and posts so that I can ensure content quality and appropriateness before it is published.
 
 ## Website Goals and Objectives
 
@@ -263,6 +271,8 @@ The database schema outlines the structure and relationships between key tables 
 
 This schema was generated using [drawsql.app](https://drawsql.app/).
 
+All the movie information was taken from the [example database json file](https://github.com/toedter/movies-demo/blob/master/backend/src/main/resources/static/movie-data/movies-250.json ). Based on the data from this file, models for movies and genres were built.
+
 <details>
 <summary>
 <b>The database scheme that was created during project planning.</b>
@@ -294,9 +304,9 @@ The site is made in black and white with color accents on some elements. A simpl
 
 [Inter](https://fonts.google.com/specimen/Inter) is one of the world's most used typefaces with applications ranging from computer interfaces, advertising & airports, to NASA instrumentation & medical equipment.
 
+![Inter font](docs/font.png)
+
 ### Colour Scheme
-
-
 
 ![Color scheme](docs/pallete.png)
 
