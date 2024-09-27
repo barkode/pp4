@@ -1,11 +1,41 @@
 # StoreLinks web application
 
-![Main Image]()
+![Main Image](docs/main.png)
+
 
 
 [Deployed Link](https://storelinks-ff093b7a4c54.herokuapp.com/)
 
-Project description
+Our goal is to help users find good content, whether it's movies, series, or music. But add it to your favorites list. So you can watch or listen to your favorite content in the future. The project was created for educational purposes.
+
+<details>
+<summary>
+<b>Mobile view.</b>
+</summary>
+
+![Mobile View](docs/site-on-mobile.png)
+
+</details>
+<br/>
+
+<details>
+<summary>
+<b>Tablet view.</b>
+</summary>
+
+![Tablet View](docs/site-on-tablet.png)
+
+</details>
+<br/>
+
+<details>
+<summary>
+<b>Desktop view.</b>
+</summary>
+
+![Desktop View](docs/site-on-desktop.png)
+
+</details>
 
 # Contents
 
@@ -128,9 +158,30 @@ With an emphasis on delivering a seamless user experience, the goal of this proj
 
 The wireframes for the platform provide a visual representation of the layout and structure of the application. They outline the placement of key elements such as navigation menus, user profiles, content areas, and interactive features. The wireframes ensure a cohesive and intuitive user interface, guiding the design and development process. After the extensive testing was conducted, naturally there are some deviations from wireframes in the live version of the platform.
 
-[Mobile Wireframes]()
+<details>
+<summary><b>Mobile Wireframes</b></summary>
 
-[Desktop Wireframes]()
+![Mobile Wireframes](docs/warframes/mw-1.png)
+![Mobile Wireframes](docs/warframes/mw-2.png)
+![Mobile Wireframes](docs/warframes/mw-3.png)
+![Mobile Wireframes](docs/warframes/mw-4.png)
+![Mobile Wireframes](docs/warframes/mw-5.png)
+![Mobile Wireframes](docs/warframes/mw-6.png)
+
+</details>
+<br/>
+
+<details>
+<summary><b>Desktop Wireframes</b></summary>
+
+![Desktop Wireframes](docs/warframes/dw-4.png)
+![Desktop Wireframes](docs/warframes/dw-2.png)
+![Desktop Wireframes](docs/warframes/dw-3.png)
+![Desktop Wireframes](docs/warframes/dw-1.png)
+![Desktop Wireframes](docs/warframes/dw-5.png)
+![Desktop Wireframes](docs/warframes/dw-6.png)
+
+</details>
 
 [Back to top](#contents)
 
