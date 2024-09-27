@@ -49,8 +49,8 @@
                 <nav class="navbar navbar-expand-lg bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky bg-white border border-dark px-xl-3"
                      data-bsb-sticky-target="#header">
                     <div class="container">
-                        <a class="navbar-brand" href="#">
-                            <img src="./assets/img/branding/presta-logo.svg" class="bsb-tpl-logo" alt="">
+                        <a class="navbar-brand" href="{% url 'main:index' %}">
+                            <img src="{% static 'images/logo.png' %}" class="bsb-tpl-logo" alt="">
                         </a>
                         <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
                                 data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -175,8 +175,8 @@
                         <div class="row gy-4 gy-lg-0 p-3 p-md-4 p-xxl-5 align-items-md-center">
                             <div class="col-xs-12 col-sm-6 col-lg-4 order-0 order-lg-0">
                                 <div class="footer-logo-wrapper text-center text-sm-start">
-                                    <a href="#!">
-                                        <img src="./assets/img/branding/presta-logo.svg" alt="Presta Logo"
+                                    <a href="{% url 'main:index' %}">
+                                        <img src="{% static 'images/logo.png' %}" alt="storelink Logo"
                                              class="bsb-tpl-logo-footer">
                                     </a>
                                 </div>
@@ -188,8 +188,8 @@
                                         &copy; 2024. All Rights Reserved.
                                     </div>
                                     <div class="credits text-secondary text-center mt-2 fs-8">
-                                        Built by <a href="https://bootstrapbrain.com/"
-                                                    class="link-secondary text-decoration-none">BootstrapBrain</a> with
+                                        Built by <a href="https://github.com/barkode/storelinks"
+                                                    class="link-secondary text-decoration-none">StoreLinks - Save your links</a> with
                                         <span class="text-primary">&#9829;</span>
                                     </div>
                                 </div>
@@ -230,6 +230,7 @@
                                                 </svg>
                                             </a>
                                         </li>
+
                                     </ul>
                                 </div>
                             </div>
