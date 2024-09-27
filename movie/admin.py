@@ -10,12 +10,13 @@ from .models import MovieComment
 # @admin.action(description="Mark selected as published")
 # def make_published(modeladmin, request, queryset):
 #     queryset.update(status=1)
+
+
 @admin.register(Movie)
 class MoviesAdmin(admin.ModelAdmin):
     """
     Allows administrator to manage movies
     """
-    # STATUS = ((0, "Draft"), (1, "Published"))
 
     list_display = ['title', "status"]
     search_fields = ['title', "status", "plot"]
@@ -52,30 +53,37 @@ class MoviesAdmin(admin.ModelAdmin):
             messages.WARNING,
             )
 
+
 @admin.register(Genre)
 class MovieGenre(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     search_fields = ['name', 'slug']
+
 
 @admin.register(Actor)
 class MovieActor(admin.ModelAdmin):
     search_fields = ['name', 'slug']
     prepopulated_fields = {'slug': ('name',)}
 
+
 @admin.register(Production)
 class MovieProduction(admin.ModelAdmin):
     pass
+
 
 @admin.register(MovieComment)
 class MovieCommentAdmin(admin.ModelAdmin):
     """
 
-    MovieCommentAdmin defines the admin interface settings for the MovieComment model.
+    MovieCommentAdmin defines the admin interface settings for the MovieComment
+    model.
 
     Attributes:
-        list_display (list): Specifies the fields to be displayed in the list view.
+        list_display (list): Specifies the fields to be displayed in the list
+        view.
         list_filter (tuple): Defines the fields to filter the list view by.
-        search_fields (list): Specifies the fields to include in the search functionality.
+        search_fields (list): Specifies the fields to include in the search
+        functionality.
     """
     list_display = ['body', 'author', 'created_on']
     list_filter = ('created_on', 'author')
