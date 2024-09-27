@@ -30,6 +30,8 @@ class CollaborateRequest(models.Model):
     name = models.CharField(max_length=200)
     email = models.EmailField()
     message = models.TextField()
+    phone = models.CharField(max_length=25, null=True, blank=True)
+    subject = models.CharField(max_length=200, null=True, blank=True)
     read = models.BooleanField(default=False)
 
     class Meta:
