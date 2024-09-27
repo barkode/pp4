@@ -66,7 +66,7 @@ Our goal is to help users find good content, whether it's movies, series, or mus
 - [Features](#features)
     * [Header](#header)
     * [Footer](#footer)
-    * [Landing Page](#landing-page)
+    * [Custom Error Pages](#custom-error-pages)
     * [User Account Pages](#user-account-pages)
     * [Profile Page](#profile-page)
     * [Add Insight](#add-insight)
@@ -381,8 +381,11 @@ So I used the Bootstrap5 css framework so the site looks good on both mobile and
 
 ### Custom Error Pages
 
+Made pages for errors 404, 403, 500. Used a simple design. The user is presented with an error message and a return home button.
+
 <details><summary><b>Custom error pages</b></summary>
 
+![Page 404](docs/404.png)
 
 </details><br/>
 
@@ -398,9 +401,40 @@ So I used the Bootstrap5 css framework so the site looks good on both mobile and
 
 [Back to top](#contents)
 
+## User Registration form
+
+<details><summary><b>User registration</b></summary>
+
+![Registration](docs/d-login.png)
+![Registration](docs/m-login.png)
+
+</details><br/>
+
+[Back to top](#contents)
+
+## User authorization form
+
+<details><summary><b>User registration</b></summary>
+
+![Registration](docs/d-reg.png)
+![Registration](docs/m-reg.png)
+
+</details><br/>
+
+[Back to top](#contents)
+
+## User profile form
+
+<details><summary><b>User registration</b></summary>
+
+![Registration](docs/d-up.png)
+![Registration](docs/m-up.png)
+
+</details><br/>
+
+[Back to top](#contents)
 
 ## Future Features
-
 
 [Back to top](#contents)
 
