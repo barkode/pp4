@@ -10,8 +10,8 @@ colorama==0.4.6
 crispy-bootstrap5==2024.10
 dj-database-url==2.3.0
 dj3-cloudinary-storage==0.0.6
-Django==4.2.16
-django-allauth==65.2.0
+Django==4.2.17
+django-allauth==65.3.0
 django-cloudinary-storage==0.3.0
 django-crispy-forms==2.3
 django-debug-toolbar==5.0.0a0
@@ -26,7 +26,7 @@ psycopg2==2.9.10
 python-dotenv==1.0.1
 requests==2.32.3
 setuptools==75.6.0
-six==1.16.0
+six==1.17.0
 soupsieve==2.6
 sqlparse==0.5.2
 typing_extensions==4.12.2
