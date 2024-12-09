@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.contrib import messages
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
 from .forms import MovieCommentForm
 
@@ -128,6 +129,7 @@ def comment_edit(request, slug, comment_id):
     Appropriate success or error messages are then added to the request context.
     Finally, the function redirects to the post detail page.
     """
+
     if request.method == "POST":
 
         queryset = Movie.objects.filter(status=1)
@@ -146,8 +148,7 @@ def comment_edit(request, slug, comment_id):
                 request, messages.ERROR, 'Error updating comment!'
                 )
 
-    return HttpResponseRedirect(reverse('comment', args=[slug]))
-
+    return HttpResponseRedirect(reverse('movies:movie_detail', args=[slug]))
 
 def comment_delete(request, slug, comment_id):
     """
@@ -186,4 +187,4 @@ def comment_delete(request, slug, comment_id):
             request, messages.ERROR, 'You can only delete your own comments!'
             )
 
-    return HttpResponseRedirect(reverse('comment', args=[slug]))
+    return HttpResponseRedirect(reverse('movies:movie_detail', args=[slug]))
