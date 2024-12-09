@@ -62,6 +62,7 @@ def movie_catalog(request, genre_slug=None):
     # Pass the movies and page object to the template
     return render(request, 'movie/index.html', context)
 
+
 def movie_detail(request, movie_slug):
     """
     Handles the display of movie details including comments.
@@ -81,12 +82,11 @@ def movie_detail(request, movie_slug):
         - Prepares the context for rendering the movie detail page with movie details, comments, comment count, and the comment form.
         - Renders the 'movie/movie_detail.html' template with the context.
     """
+
     queryset = Movie.objects.filter(status=1)
-
     movie = get_object_or_404(queryset, slug=movie_slug)
-
-    comments = movie.movie_comments.filter(approved=True).order_by("-created_on")
-    comment_count = comments.count()
+    comments = movie.movie_comments.all().order_by('-created_on')
+    comment_count = movie.movie_comments.filter(approved=True).count()
 
     if request.method == "POST":
         comment_form = MovieCommentForm(data=request.POST)
@@ -129,21 +129,24 @@ def comment_edit(request, slug, comment_id):
     Appropriate success or error messages are then added to the request context.
     Finally, the function redirects to the post detail page.
     """
-
+    print("IN FUNCTION")
+    print(request.method)
     if request.method == "POST":
 
         queryset = Movie.objects.filter(status=1)
         movie = get_object_or_404(queryset, slug=slug)
         comment = get_object_or_404(MovieComment, pk=comment_id)
         comment_form = MovieCommentForm(data=request.POST, instance=comment)
-
+        print("Before IF")
         if comment_form.is_valid() and comment.author == request.user:
             comment = comment_form.save(commit=False)
             comment.movie = movie
             comment.approved = False
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+            print('UPDATED')
         else:
+            print("WRONG")
             messages.add_message(
                 request, messages.ERROR, 'Error updating comment!'
                 )
