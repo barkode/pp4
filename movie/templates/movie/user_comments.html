@@ -1,0 +1,7 @@
+<ul>
+    {% for comment in comments %}
+        <li>
+        {{ comment.body }} - {{ comment.approved }}
+        </li>
+    {% endfor %}
+</ul>

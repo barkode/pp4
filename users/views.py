@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
+from movie.models import MovieComment
 from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm
 
 
@@ -100,6 +101,7 @@ def profile(request):
     Returns:
         HttpResponse: Renders the `profile.html` template with the given context.
     """
+    comments = MovieComment.objects.filter(author_id=request.user)
     if request.method == "POST":
         form = UserProfileForm(data=request.POST, instance=request.user, files=request.FILES)
         if form.is_valid():
@@ -111,6 +113,7 @@ def profile(request):
     context = {
         "title": "StoreLinks - Profile",
         "form": form,
+        "comments":comments,
         }
     return render(request, "users/profile.html", context)
 
