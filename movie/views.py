@@ -128,24 +128,19 @@ def comment_edit(request, slug, comment_id):
     Appropriate success or error messages are then added to the request context.
     Finally, the function redirects to the post detail page.
     """
-    print("IN FUNCTION")
-    print(request.method)
     if request.method == "POST":
 
         queryset = Movie.objects.filter(status=1)
         movie = get_object_or_404(queryset, slug=slug)
         comment = get_object_or_404(MovieComment, pk=comment_id)
         comment_form = MovieCommentForm(data=request.POST, instance=comment)
-        print("Before IF")
         if comment_form.is_valid() and comment.author == request.user:
             comment = comment_form.save(commit=False)
             comment.movie = movie
             comment.approved = False
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
-            print('UPDATED')
         else:
-            print("WRONG")
             messages.add_message(
                 request, messages.ERROR, 'Error updating comment!'
                 )
@@ -190,3 +185,11 @@ def comment_delete(request, slug, comment_id):
             )
 
     return HttpResponseRedirect(reverse('movies:movie_detail', args=[slug]))
+
+@login_required
+def user_comments(request, slug, comment_id, action=None):
+    comments = MovieComment.objects.filter(user=request.user)
+    context = {
+        'comments': comments,
+        }
+    return render(request, 'movie/user_comments.html', context)
