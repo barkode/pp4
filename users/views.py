@@ -130,3 +130,7 @@ def logout(request):
         f"You have been logged out successfully !!")
     auth.logout(request)
     return HttpResponseRedirect(reverse('main:index'))
+
+@login_required
+def user_comments(request, slug, comment_id, action=None):
+    pass

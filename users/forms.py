@@ -61,8 +61,8 @@ class UserRegisterForm(UserCreationForm):
         model = User
         fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2')
 
-    first_name = forms.CharField()
-    last_name = forms.CharField()
+    first_name = forms.CharField(required=False)
+    last_name = forms.CharField(required=False)
     username = forms.CharField()
     email = forms.EmailField()
     password1 = forms.CharField()
@@ -101,8 +101,8 @@ class UserProfileForm(UserChangeForm):
         fields = ('image', 'first_name', 'last_name', 'email', 'username', )
 
     image = forms.ImageField(required=False)
-    first_name = forms.CharField()
-    last_name = forms.CharField()
+    first_name = forms.CharField(required=False)
+    last_name = forms.CharField(required=False)
     email = forms.EmailField()
     username = forms.CharField()
 

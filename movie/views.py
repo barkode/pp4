@@ -62,7 +62,6 @@ def movie_catalog(request, genre_slug=None):
     # Pass the movies and page object to the template
     return render(request, 'movie/index.html', context)
 
-
 def movie_detail(request, movie_slug):
     """
     Handles the display of movie details including comments.
