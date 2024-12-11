@@ -1,7 +1,9 @@
-<ul>
-    {% for comment in comments %}
-        <li>
-        {{ comment.body }} - {{ comment.approved }}
-        </li>
-    {% endfor %}
-</ul>
+{% for comment in comments %}
+    <div class="accordion-item mb-4 border border-dark">
+        <h2 class="accordion-header" id="headingThree">
+            {{ comment.body }} - {{ comment.approved }}
+        </h2>
+
+    </div>
+
+{% endfor %}
