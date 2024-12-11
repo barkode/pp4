@@ -4,52 +4,55 @@
 
 {% block content %}
 
-<section class="py-3 py-md-5 py-xl-8">
-    <div class="container overflow-hidden">
-        <div class="row gy-4 gy-xxl-5">
-            <div class="col-md-4">
-                <img src="{{ movie.poster }}" alt="{{ movie.title }} Poster" class="img-fluid">
+    <section class="py-3 py-md-5 py-xl-8">
+        <div class="container overflow-hidden">
+            <div class="row gy-4 gy-xxl-5">
+                <div class="col-md-4">
+                    <img src="{{ movie.poster }}" alt="{{ movie.title }} Poster" class="img-fluid"
+                         onerror="this.onerror=null; this.src='{% static 'images/no_image_poster.png' %}';"
+                         style="object-fit: cover;">
+                </div>
+                <div class="col-md-8">
+                    <h1>{{ movie.title }}</h1>
+                    <p><strong>Year:</strong> {{ movie.year }}</p>
+                    <p><strong>Rated:</strong> {{ movie.rated }}</p>
+                    <p><strong>Released:</strong> {{ movie.released }}</p>
+                    <p><strong>Runtime:</strong> {{ movie.runtime }}</p>
+                    <p><strong>Genres:</strong>
+                        {% for genre in movie.genres.all %}
+                            {{ genre.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
+                    <p><strong>Director:</strong> {{ movie.director }}</p>
+                    <p><strong>Writer:</strong> {{ movie.writer }}</p>
+                    <p><strong>Actors:</strong>
+                        {% for actor in movie.actors.all %}
+                            {{ actor.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
+                    <p><strong>Plot:</strong> {{ movie.plot }}</p>
+                    <p><strong>Language:</strong> {{ movie.language }}</p>
+                    <p><strong>Country:</strong> {{ movie.country }}</p>
+                    <p><strong>Awards:</strong> {{ movie.awards }}</p>
+                    <p><strong>Metascore:</strong> {{ movie.metascore }}</p>
+                    <p><strong>IMDb Rating:</strong> {{ movie.imdb_rating }}</p>
+                    <p><strong>IMDb Votes:</strong> {{ movie.imdb_votes }}</p>
+                    <p><strong>Box Office:</strong> {{ movie.box_office }}</p>
+                    <p><strong>Production:</strong> {{ movie.production.name }}</p>
+                    <p><strong>Website:</strong> <a href="{{ movie.website }}" target="_blank">{{ movie.website }}</a>
+                    </p>
+                </div>
             </div>
-            <div class="col-md-8">
-                <h1>{{ movie.title }}</h1>
-                <p><strong>Year:</strong> {{ movie.year }}</p>
-                <p><strong>Rated:</strong> {{ movie.rated }}</p>
-                <p><strong>Released:</strong> {{ movie.released }}</p>
-                <p><strong>Runtime:</strong> {{ movie.runtime }}</p>
-                <p><strong>Genres:</strong>
-                    {% for genre in movie.genres.all %}
-                        {{ genre.name }}{% if not forloop.last %}, {% endif %}
-                    {% endfor %}
-                </p>
-                <p><strong>Director:</strong> {{ movie.director }}</p>
-                <p><strong>Writer:</strong> {{ movie.writer }}</p>
-                <p><strong>Actors:</strong>
-                    {% for actor in movie.actors.all %}
-                        {{ actor.name }}{% if not forloop.last %}, {% endif %}
-                    {% endfor %}
-                </p>
-                <p><strong>Plot:</strong> {{ movie.plot }}</p>
-                <p><strong>Language:</strong> {{ movie.language }}</p>
-                <p><strong>Country:</strong> {{ movie.country }}</p>
-                <p><strong>Awards:</strong> {{ movie.awards }}</p>
-                <p><strong>Metascore:</strong> {{ movie.metascore }}</p>
-                <p><strong>IMDb Rating:</strong> {{ movie.imdb_rating }}</p>
-                <p><strong>IMDb Votes:</strong> {{ movie.imdb_votes }}</p>
-                <p><strong>Box Office:</strong> {{ movie.box_office }}</p>
-                <p><strong>Production:</strong> {{ movie.production.name }}</p>
-                <p><strong>Website:</strong> <a href="{{ movie.website }}" target="_blank">{{ movie.website }}</a></p>
+            <div class="mt-4">
+                <a href="{% url 'main:index' %}" class="btn btn-primary">Back to Home</a>
             </div>
         </div>
-        <div class="mt-4">
-            <a href="{% url 'main:index' %}" class="btn btn-primary">Back to Home</a>
-        </div>
-    </div>
-</section>
-<section>
-    {% block comments %}
-        {% include 'movie/comment.html' %}
-    {% endblock %}
-</section>
+    </section>
+    <section>
+        {% block comments %}
+            {% include 'movie/comment.html' %}
+        {% endblock %}
+    </section>
 
 
 
