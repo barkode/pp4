@@ -12,9 +12,9 @@
                     </div>
                     {% for page in page_obj.paginator.page_range %}
                         {% if page >= page_obj.number|add:-3 and page <= page_obj.number|add:3 %}
-                            <li class="page-item {% if page_obj.number == page %} active {% endif %}">
+                            <div class="page-item {% if page_obj.number == page %} active {% endif %}">
                                 <a class="page-link" href="?{% change_params page=page %}">{{ page }}</a>
-                            </li>
+                            </div>
                         {% endif %}
                     {% endfor %}
 
