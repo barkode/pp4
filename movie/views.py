@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 from .forms import MovieCommentForm
 
-from .models import Movie, MovieComment
+from .models import Genre, Movie, MovieComment
 from .utils import q_search
 
 
@@ -49,15 +49,15 @@ def movie_catalog(request, genre_slug=None):
     else:
         movies_list = get_list_or_404(Movie.objects.filter(genres__slug=genre_slug))
 
-    # movies_list = get_list_or_404(Movie.objects.filter(status=1).order_by('?'))
-
     # Set up pagination, with 24 items per page and 3 orphans
     paginator = Paginator(movies_list, 24, orphans=3)
 
     # Get the movies for the current page
     page_obj = paginator.get_page(page_number)
+    genre_name = get_object_or_404(Genre.objects.filter(slug=genre_slug))
+    genre_title = genre_name.name if genre_name else 'Movie Catalog'
 
-    context = {'page_obj': page_obj, 'slug_url': genre_slug}
+    context = {'page_obj': page_obj, 'slug_url': genre_slug, 'title': genre_title.capitalize(),}
 
     # Pass the movies and page object to the template
     return render(request, 'movie/index.html', context)
@@ -103,7 +103,8 @@ def movie_detail(request, movie_slug):
     context = {'movie': movie,
                "comments": comments,
                "comment_count": comment_count,
-               "comment_form": comment_form,}
+               "comment_form": comment_form,
+               "title": movie.title,}
 
 
     return render(
