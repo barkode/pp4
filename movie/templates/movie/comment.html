@@ -58,7 +58,7 @@
                         </button>
                     </form>
                 {% else %}
-                    <p>Log in to leave a comment</p>
+                    <p><a href="{% url 'user:login' %}">Log in</a> to leave a comment</p>
                 {% endif %}
             </div>
         </div>
