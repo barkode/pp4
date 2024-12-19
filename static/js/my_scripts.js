@@ -19,8 +19,7 @@ const deleteConfirm = document.getElementById("deleteConfirm");
 for (let button of editButtons) {
     button.addEventListener("click", (e) => {
         let commentId = e.target.getAttribute("data-comment_id");
-        let commentContent = document.getElementById(`comment${commentId}`).innerText;
-        commentText.value = commentContent;
+        commentText.value = document.getElementById(`comment${commentId}`).innerText;
         submitButton.innerText = "Update";
         commentForm.setAttribute("action", `edit_comment/${commentId}/`);
     });
