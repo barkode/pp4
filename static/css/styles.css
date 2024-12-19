@@ -166,3 +166,22 @@ body {
 .approval {
 	color: rgb(222, 146, 168);
 }
+
+.dropdown-menu {
+	min-width: 600px;  /* Adjust based on your needs */
+}
+
+.dropdown-item {
+	padding: 0.5rem 1rem;
+	white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+	.dropdown-menu {
+		min-width: 100%;
+	}
+
+	.dropdown-item {
+		white-space: normal;
+	}
+}
