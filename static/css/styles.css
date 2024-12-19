@@ -169,6 +169,9 @@ body {
 	min-width: 600px; /* Adjust based on your needs */
 }
 
+.dropdown-menu.profile {
+	min-width: 100%;
+}
 .dropdown-item {
 	padding: 0.5rem 1rem;
 	white-space: nowrap;
