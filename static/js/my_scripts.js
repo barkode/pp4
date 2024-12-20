@@ -6,7 +6,7 @@ const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
 const deleteButtons = document.getElementsByClassName("btn-delete");
 const deleteConfirm = document.getElementById("deleteConfirm");
 
-// Автоматичне зникнення повідомлення через 5 секунд
+// Auto close message after 5 seconds
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         const alerts = document.querySelectorAll('.alert');

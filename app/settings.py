@@ -21,7 +21,7 @@ load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-PROJECT_NAME="storelinks"
+PROJECT_NAME = "storelinks"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -65,8 +65,8 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
-    'crispy_forms',
-    'crispy_bootstrap5',
+    "crispy_forms",
+    "crispy_bootstrap5",
     # Own apps
     "main",
     "about",
@@ -161,14 +161,14 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Cloudinary settings
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.getenv('CLOUD_NAME'),
-    'API_KEY': os.getenv('CLOUD_API_KEY'),
-    'API_SECRET': os.getenv('CLOUD_API_SECRET'),
-    }
+    "CLOUD_NAME": os.getenv("CLOUD_NAME"),
+    "API_KEY": os.getenv("CLOUD_API_KEY"),
+    "API_SECRET": os.getenv("CLOUD_API_SECRET"),
+}
 
 STORAGES = {
-    'default': {
-        'BACKEND': 'cloudinary_storage.storage.MediaCloudinaryStorage',
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
