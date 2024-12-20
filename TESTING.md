@@ -5,20 +5,18 @@ Return back to the [README.md](README.md) file.
 # Contents
 
 <!-- TOC -->
-
 * [Testing](#testing)
 * [Contents](#contents)
-    * [Responsiveness Tests](#responsiveness-tests)
-    * [Code Validation](#code-validation)
-        * [HTML](#html)
-        * [CSS](#css)
-        * [JavaScript](#javascript)
-        * [Python](#python)
-    * [Manual Testing](#manual-testing)
-    * [Bugs](#bugs)
-    * [Lighthouse Testing](#lighthouse-testing)
-    * [Accessibility Testing](#accessibility-testing)
-
+  * [Responsiveness Tests](#responsiveness-tests)
+  * [Code Validation](#code-validation)
+    * [HTML](#html)
+    * [CSS](#css)
+    * [JavaScript](#javascript)
+    * [Python](#python)
+  * [Manual Testing](#manual-testing)
+  * [Bugs](#bugs)
+  * [Lighthouse Testing](#lighthouse-testing)
+  * [Accessibility Testing](#accessibility-testing)
 <!-- TOC -->
 
 ## Responsiveness Tests
@@ -131,24 +129,24 @@ The python files have all been passed through [PEP8 CI Online](https://pep8ci.he
 | admin.py(movie)         | ✅    | ![Result](docs/test/py.png)     |
 | apps.py(movie)          | ✅    | ![Result](docs/test/py-4.png)   |
 | forms.py(movie)         | ✅    | ![Result](/docs/test/py-5.png)  |
-| models.py(movie)        | ✅   | ![Result](/docs/test/py-6.png)  |
-| urls.py(movie)          | ✅   | ![Result](/docs/test/py-7.png)  |
-| utils.py(movie)         | ✅   | ![Result](/docs/test/py-8.png)  |
-| views.py(movie)         | ✅   | ![Result](/docs/test/py-9.png)  |
-| movie_tags.py(movie)    | ✅   | ![Result](/docs/test/py-10.png) |
-| import_movies.py(movie) | ✅   | ![Result](/docs/test/py-11.png) |
-| fill_slug.py(movie)     | ✅   | ![Result](/docs/test/py-12.png) |
-| admin.py(about)         | ✅   | ![Result](/docs/test/py-13.png) |
-| forms.py(about)         | ✅   | ![Result](/docs/test/py-14.png) |
+| models.py(movie)        | ✅    | ![Result](/docs/test/py-6.png)  |
+| urls.py(movie)          | ✅    | ![Result](/docs/test/py-7.png)  |
+| utils.py(movie)         | ✅    | ![Result](/docs/test/py-8.png)  |
+| views.py(movie)         | ✅    | ![Result](/docs/test/py-9.png)  |
+| movie_tags.py(movie)    | ✅    | ![Result](/docs/test/py-10.png) |
+| import_movies.py(movie) | ✅    | ![Result](/docs/test/py-11.png) |
+| fill_slug.py(movie)     | ✅    | ![Result](/docs/test/py-12.png) |
+| admin.py(about)         | ✅    | ![Result](/docs/test/py-13.png) |
+| forms.py(about)         | ✅    | ![Result](/docs/test/py-14.png) |
 | models.py(about)        | ✅    | ![Result](/docs/test/py-15.png) |
-| views.py(about)         | no   | ![Result](/docs/test/py-16.png) |
+| views.py(about)         | ✅    | ![Result](/docs/test/py-16.png) |
 | urls.py(about)          | ✅    | ![Result](/docs/test/py-17.png) |
 | admin.py(users)         | ✅    | ![Result](/docs/test/py-18.png) |
-| views.py(users)         | no   | ![Result](/docs/test/py-19.png) |
-| models.py(users)        | no   | ![Result](/docs/test/py-20.png) |
-| forms.py(users)         | no   | ![Result](/docs/test/py-21.png) |
-| urls.py(users)          | no   | ![Result](/docs/test/py-22.png) |
-| apps.py(users)          | no   | ![Result](/docs/test/py-23.png) |
+| views.py(users)         | ✅    | ![Result](/docs/test/py-19.png) |
+| models.py(users)        | ✅    | ![Result](/docs/test/py-20.png) |
+| forms.py(users)         | ✅    | ![Result](/docs/test/py-21.png) |
+| urls.py(users)          | ✅    | ![Result](/docs/test/py-22.png) |
+| apps.py(users)          | ✅    | ![Result](/docs/test/py-23.png) |
 
 </details><br/>
 
