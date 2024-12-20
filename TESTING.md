@@ -5,18 +5,20 @@ Return back to the [README.md](README.md) file.
 # Contents
 
 <!-- TOC -->
+
 * [Testing](#testing)
 * [Contents](#contents)
-  * [Responsiveness Tests](#responsiveness-tests)
-  * [Code Validation](#code-validation)
-    * [HTML](#html)
-    * [CSS](#css)
-    * [JavaScript](#javascript)
-    * [Python](#python)
-  * [Manual Testing](#manual-testing)
-  * [Bugs](#bugs)
-  * [Lighthouse Testing](#lighthouse-testing)
-  * [Accessibility Testing](#accessibility-testing)
+    * [Responsiveness Tests](#responsiveness-tests)
+    * [Code Validation](#code-validation)
+        * [HTML](#html)
+        * [CSS](#css)
+        * [JavaScript](#javascript)
+        * [Python](#python)
+    * [Manual Testing](#manual-testing)
+    * [Bugs](#bugs)
+    * [Lighthouse Testing](#lighthouse-testing)
+    * [Accessibility Testing](#accessibility-testing)
+
 <!-- TOC -->
 
 ## Responsiveness Tests
@@ -192,6 +194,12 @@ The python files have all been passed through [PEP8 CI Online](https://pep8ci.he
 
 </details><br/>
 
+<details><summary>Registration form tests</summary>
+
+![Result](docs/test/reg-test.png)
+
+</details><br>
+
 [Back to top](#contents)
 
 ## Bugs
@@ -199,7 +207,8 @@ The python files have all been passed through [PEP8 CI Online](https://pep8ci.he
 - BUG: Index page HTML validation - [Link](https://github.com/barkode/storelinks/issues/37)
 - BUG: Section lacks heading. - [Link](https://github.com/barkode/storelinks/issues/38)
 - BUG: Error Pages Display - [Link](https://github.com/barkode/storelinks/issues/35)
-- BUG: Element div not allowed as child of element ul in this context. - [Link](https://github.com/barkode/storelinks/issues/39)
+- BUG: Element div not allowed as child of element ul in this
+  context. - [Link](https://github.com/barkode/storelinks/issues/39)
 - BUG: Low contrast backlight in the category menu. - [Link](https://github.com/barkode/storelinks/issues/41)
 - BUG: CRUD problems - [Link](https://github.com/barkode/storelinks/issues/42)
 - BUG: Element title must not be empty. - [Link](https://github.com/barkode/storelinks/issues/40)
@@ -239,6 +248,7 @@ While building the application, the general principles of accessibility were adh
 - Using ARIA labels
   Wave made a few comments and found a few mistakes.
 
-![WAVE](docs/wave.png)
+![WAVE](docs/wave1.png)
+![WAVE](docs/wave2.png)
 
 [Back to top](#contents)
