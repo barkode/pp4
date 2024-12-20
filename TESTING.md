@@ -1,48 +1,56 @@
-
 # Testing
 
 Return back to the [README.md](README.md) file.
 
 # Contents
 
-- [Responsiveness Tests](#responsiveness-tests)
-- [Code Validation](#code-validation)
-    * [HTML](#html)
-    * [CSS](#css)
-    * [JavaScript](#javascript)
-    * [Python](#python)
-    * [Python (Unit Testing)](#python--unit-testing-)
-- [Manual Testing](#manual-testing)
-- [Bugs](#bugs)
-- [Lighthouse Testing](#lighthouse-testing)
-- [Accessibility Testing](#accessibility-testing)
+<!-- TOC -->
 
+* [Testing](#testing)
+* [Contents](#contents)
+    * [Responsiveness Tests](#responsiveness-tests)
+    * [Code Validation](#code-validation)
+        * [HTML](#html)
+        * [CSS](#css)
+        * [JavaScript](#javascript)
+        * [Python](#python)
+    * [Manual Testing](#manual-testing)
+    * [Bugs](#bugs)
+    * [Lighthouse Testing](#lighthouse-testing)
+    * [Accessibility Testing](#accessibility-testing)
+
+<!-- TOC -->
 
 ## Responsiveness Tests
-To test the responsiveness, I have launched the website very early on. I followed the mobile-first strategy and verified all of my modifications using the DevTools browsers for Google Chrome and Microsoft Edge. Deployed versions were tested using the external website [Responsive Design Checker](https://responsivedesignchecker.com/ "Responsive Design Checker"). The [Am I Responsive](https://ui.dev/amiresponsive "Am I responsive") website was another external source that was used to obtain a unified view of different device breakpoints.
 
-I have also used Google Chrome's Mobile Simulator extension to evaluate the responsiveness of even more specialized devices. Device samples were examined for navigation, element alignment, content layout, and functionality concerns at different breakpoints.
+To test the responsiveness, I have launched the website very early on. I followed the mobile-first strategy and verified
+all of my modifications using the DevTools browsers for Google Chrome and Microsoft Edge. Deployed versions were tested
+using the external
+website [Responsive Design Checker](https://responsivedesignchecker.com/ "Responsive Design Checker").
+The [Am I Responsive](https://ui.dev/amiresponsive "Am I responsive") website was another external source that was used
+to obtain a unified view of different device breakpoints.
+
+I have also used Google Chrome's Mobile Simulator extension to evaluate the responsiveness of even more specialized
+devices. Device samples were examined for navigation, element alignment, content layout, and functionality concerns at
+different breakpoints.
 
 Final Test Results:
 
-| Size | Navigation   | Element Alignments | Content Placement | Functionality |
-|------|--------------| ------------------ | ----------------- |---------------|
-| sm   | &check;      | &check;            | &check;           | &check;       |
-| md   | &check;      | &check;            | &check;           | &check;       |
-| lg   | &check;      | &check;            | &check;           | &check;       |
-| xl   | &check;      | &check;            | &check;           | &check;       |
-| xxl  | &check;      | &check;            | &check;           | &check;       |
-
-
+| Size | Navigation | Element Alignments | Content Placement | Functionality |
+|------|------------|--------------------|-------------------|---------------|
+| sm   | &check;    | &check;            | &check;           | &check;       |
+| md   | &check;    | &check;            | &check;           | &check;       |
+| lg   | &check;    | &check;            | &check;           | &check;       |
+| xl   | &check;    | &check;            | &check;           | &check;       |
+| xxl  | &check;    | &check;            | &check;           | &check;       |
 
 [Back to top](#contents)
-
 
 ## Code Validation
 
 ### HTML
 
-The recommended [HTML W3C Validator](https://validator.w3.org) to validate all of the project's HTML files.
+The recommended [HTML W3C Validator](https://validator.w3.org) to validate all the project's HTML files.
 
 This is the process which was followed of validating an HTML file by direct input:
 
@@ -55,13 +63,35 @@ This is the process which was followed of validating an HTML file by direct inpu
 
 <summary>HTML Validation Results</summary>
 
-| File Name                  | Pass | Notes                                                                                       | View Result                                                              |
-|----------------------------|------|---------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
-| index page                 | no   | Error: Element div not allowed as child of element ul in this context.                      | [Result](docs/test/1.png)                                                |
-| about page                 | no   | There are few bugs on page                                                                  | ![Result](docs/test/2.png)                                               |
-| contact page               | no   | There are few bugs on page                                                                  | ![Result](docs/test/3.png)                                               |
-| login page                 | no   | There are few bugs on page                                                                  | ![Result](docs/test/4.png)                                               |
-| registration page          | no   | There are few bugs on page                                                                  | ![Result](docs/test/5.png)                                               |
+| File Name         | Pass | Notes                                       | View Result                 |
+|-------------------|------|---------------------------------------------|-----------------------------|
+| main page         | yes  | No Errors                                   | ![Result](docs/test/1.png)  |
+| about page        | yes  | No Errors                                   | ![Result](docs/test/2.png)  |
+| contact page      | yes  | No Errors                                   | ![Result](docs/test/3.png)  |
+| login page        | yes  | No Errors                                   | ![Result](docs/test/4.png)  |
+| registration page | yes  | No Errors                                   | ![Result](docs/test/5.png)  |
+| action page       | yes  | No Errors                                   | ![Result](docs/test/8.png)  |
+| adventure page    | yes  | No Errors                                   | ![Result](docs/test/6.png)  |
+| all page          | yes  | No Errors                                   | ![Result](docs/test/9.png)  |
+| animation page    | yes  | No Errors                                   | ![Result](docs/test/7.png)  |
+| biography page    | yes  | No Errors                                   | ![Result](docs/test/10.png) |
+| comedy page       | yes  | No Errors                                   | ![Result](docs/test/11.png) |
+| drama page        | yes  | No Errors                                   | ![Result](docs/test/12.png) |
+| family page       | yes  | No Errors                                   | ![Result](docs/test/13.png) |
+| fantasy page      | yes  | No Errors                                   | ![Result](docs/test/14.png) |
+| film-noir page    | yes  | No Errors                                   | ![Result](docs/test/15.png) |
+| history page      | yes  | No Errors                                   | ![Result](docs/test/16.png) |
+| horror page       | yes  | No Errors                                   | ![Result](docs/test/17.png) |
+| music page        | yes  | No Errors                                   | ![Result](docs/test/18.png) |
+| musical page      | yes  | No Errors                                   | ![Result](docs/test/19.png) |
+| mystery page      | yes  | No Errors                                   | ![Result](docs/test/20.png) |
+| romance page      | yes  | No Errors                                   | ![Result](docs/test/21.png) |
+| sci-fi page       | yes  | No Errors                                   | ![Result](docs/test/22.png) |
+| sport page        | yes  | No Errors                                   | ![Result](docs/test/23.png) |
+| thriller page     | yes  | No Errors                                   | ![Result](docs/test/24.png) |
+| war page          | yes  | No Errors                                   | ![Result](docs/test/25.png) |
+| western page      | yes  | No Errors                                   | ![Result](docs/test/26.png) |
+| crime page        | yes  | Normal behavior. Error 404. Nothing to show | ![Result](docs/test/27.png) |
 
 </details>
 
@@ -70,11 +100,13 @@ This is the process which was followed of validating an HTML file by direct inpu
 
 ### CSS
 
-The [W3C Jigsaw](https://jigsaw.w3.org/css-validator/) tool, provided by the W3C, enables to validate and verify the correctness of CSS code. It ensures that your web pages adhere to W3C standards, promoting interoperability and accessibility.
+The [W3C Jigsaw](https://jigsaw.w3.org/css-validator/) tool, provided by the W3C, enables to validate and verify the
+correctness of CSS code. It ensures that your web pages adhere to W3C standards, promoting interoperability and
+accessibility.
 
 | **Tested** | **Result** | **View Result**                                                                  | **Pass** |
-------------|------------|----------------------------------------------------------------------------------|:--------:
-| CSS file   | No errors  | <details><summary>Result Summary</summary>![Result](docs/test/css.png)</details> |    ✅     
+|------------|------------|----------------------------------------------------------------------------------|:--------:|
+| CSS file   | No errors  | <details><summary>Result Summary</summary>![Result](docs/test/css.png)</details> |    ✅     |
 
 ### JavaScript
 
@@ -118,11 +150,9 @@ The python files have all been passed through [PEP8 CI Online](https://pep8ci.he
 | urls.py(users)          | no   | ![Result](/docs/test/py-22.png) |
 | apps.py(users)          | no   | ![Result](/docs/test/py-23.png) |
 
-
 </details><br/>
 
 [Back to top](#contents)
-
 
 ## Manual Testing
 
@@ -166,7 +196,6 @@ The python files have all been passed through [PEP8 CI Online](https://pep8ci.he
 
 [Back to top](#contents)
 
-
 ## Bugs
 
 There are several runs in the project that could not be fixed in time.
@@ -175,7 +204,6 @@ The list of comments made by the user is not displayed.
 When logging in, a message appears that the comment is being viewed.
 
 ## Lighthouse Testing
-
 
 <details><summary><b>Lighthouse Test Results. Desktop</b></summary>
 
@@ -195,11 +223,11 @@ When logging in, a message appears that the comment is being viewed.
 
 [Back to top](#contents)
 
-
 ## Accessibility Testing
 
 Although, accessibility scores were high on Lighthouse, I have retested the page.
-[WAVE](https://wave.webaim.org/) online tool was used to check terminal colour contrast. All tests were passed. However, it should be noted that logo may return contrast error depending on browser and operating system.
+[WAVE](https://wave.webaim.org/) online tool was used to check terminal colour contrast. All tests were passed. However,
+it should be noted that logo may return contrast error depending on browser and operating system.
 
 While building the application, the general principles of accessibility were adhered to:
 
