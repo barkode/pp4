@@ -212,3 +212,7 @@ body {
 .dropdown-menu.profile {
 	min-width: 100%;
 }
+
+.messages > .row {
+	margin-top: 1rem;
+}

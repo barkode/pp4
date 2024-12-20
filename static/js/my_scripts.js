@@ -6,6 +6,18 @@ const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
 const deleteButtons = document.getElementsByClassName("btn-delete");
 const deleteConfirm = document.getElementById("deleteConfirm");
 
+// Автоматичне зникнення повідомлення через 5 секунд
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        const alerts = document.querySelectorAll('.alert');
+        alerts.forEach((alert) => {
+            const closeButton = alert.querySelector('.btn-close');
+            if (closeButton) {
+                closeButton.click();
+            }
+        });
+    }, 5000);
+});
 /**
  * Initializes edit functionality for the provided edit buttons.
  *
