@@ -7,7 +7,9 @@ class Command(BaseCommand):
     help = "Generate slugs for actors without slugs"
 
     def handle(self, *args, **kwargs):
-        actors_without_slugs = Production.objects.filter(slug__isnull=True) | Production.objects.filter(slug__exact='')
+        actors_without_slugs = Production.objects.filter(
+            slug__isnull=True
+            ) | Production.objects.filter(slug__exact="")
         updated_count = 0
 
         for actor in actors_without_slugs:
@@ -16,4 +18,7 @@ class Command(BaseCommand):
             updated_count += 1
             self.stdout.write(f"Updated slug for: {actor.name}")
 
-        self.stdout.write(self.style.SUCCESS(f"Successfully updated {updated_count} actors' slugs."))
+        self.stdout.write(
+            self.style.SUCCESS(
+                f"Successfully updated {updated_count} actors' slugs.")
+            )
