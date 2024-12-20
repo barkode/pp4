@@ -126,7 +126,7 @@ The python files have all been passed through [PEP8 CI Online](https://pep8ci.he
 
 | File Name               | Pass | View Result                     |
 |-------------------------|------|---------------------------------|
-| settings.py             | no   | ![Result](docs/test/py-1.png)   |
+| settings.py             | ✅    | ![Result](docs/test/py-1.png)   |
 | urls.py (app)           | ✅    | ![Result](docs/test/py-2.png)   |
 | admin.py(movie)         | ✅    | ![Result](docs/test/py.png)     |
 | apps.py(movie)          | ✅    | ![Result](docs/test/py-4.png)   |
