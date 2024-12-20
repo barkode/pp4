@@ -3,9 +3,11 @@
 
 
 {% block content %}
-    <h1 class="mt-4 text-center"><strong>ERROR 403.</strong></h1>
-    <h2 class="mt-4 text-center">Sorry, but you don't have permissions to access this page!</h2>
-    <div class="mt-4">
-        <a href="{% url 'main:index' %}" class="btn btn-dark btn-block">Back to Home</a>
+    <div class="container">
+        <h1 class="mt-4 text-center"><strong>ERROR 403.</strong></h1>
+        <h2 class="mt-4 text-center">Sorry, but you don't have permissions to access this page!</h2>
+        <div class="mt-4">
+            <a href="{% url 'main:index' %}" class="btn btn-dark btn-block">Back to Home</a>
+        </div>
     </div>
 {% endblock content %}
