@@ -12,7 +12,7 @@
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="id_first_name" class="form-label">Name*</label>
+                                <label for="id_first_name" class="form-label">Name</label>
                                 <input type="text" class="form-control" id="id_first_name"
                                        value="{% if form.first_name.value %}{{ form.first_name.value }}{% endif %}"
                                        name="first_name"
@@ -22,7 +22,7 @@
                             {% endif %} 
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="id_last_name" class="form-label">Surname*</label>
+                                <label for="id_last_name" class="form-label">Surname</label>
                                 <input type="text" class="form-control" id="id_last_nam"
                                        value="{% if form.last_name.value %}{{ form.last_name.value }}{% endif %}"
                                        name="last_name"
