@@ -5,20 +5,18 @@ Return back to the [README.md](README.md) file.
 # Contents
 
 <!-- TOC -->
-
 * [Testing](#testing)
 * [Contents](#contents)
-    * [Responsiveness Tests](#responsiveness-tests)
-    * [Code Validation](#code-validation)
-        * [HTML](#html)
-        * [CSS](#css)
-        * [JavaScript](#javascript)
-        * [Python](#python)
-    * [Manual Testing](#manual-testing)
-    * [Bugs](#bugs)
-    * [Lighthouse Testing](#lighthouse-testing)
-    * [Accessibility Testing](#accessibility-testing)
-
+  * [Responsiveness Tests](#responsiveness-tests)
+  * [Code Validation](#code-validation)
+    * [HTML](#html)
+    * [CSS](#css)
+    * [JavaScript](#javascript)
+    * [Python](#python)
+  * [Manual Testing](#manual-testing)
+  * [Bugs](#bugs)
+  * [Lighthouse Testing](#lighthouse-testing)
+  * [Accessibility Testing](#accessibility-testing)
 <!-- TOC -->
 
 ## Responsiveness Tests
