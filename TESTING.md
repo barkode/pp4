@@ -196,10 +196,14 @@ The python files have all been passed through [PEP8 CI Online](https://pep8ci.he
 
 ## Bugs
 
-There are several runs in the project that could not be fixed in time.
-The styles on the form for adding comments are broken.
-The list of comments made by the user is not displayed.
-When logging in, a message appears that the comment is being viewed.
+- BUG: Index page HTML validation - [Link](https://github.com/barkode/storelinks/issues/37)
+- BUG: Section lacks heading. - [Link](https://github.com/barkode/storelinks/issues/38)
+- BUG: Error Pages Display - [Link](https://github.com/barkode/storelinks/issues/35)
+- BUG: Element div not allowed as child of element ul in this context. - [Link](https://github.com/barkode/storelinks/issues/39)
+- BUG: Low contrast backlight in the category menu. - [Link](https://github.com/barkode/storelinks/issues/41)
+- BUG: CRUD problems - [Link](https://github.com/barkode/storelinks/issues/42)
+- BUG: Element title must not be empty. - [Link](https://github.com/barkode/storelinks/issues/40)
+- BUG: Dropdown menu problems - [Link](https://github.com/barkode/storelinks/issues/36)
 
 ## Lighthouse Testing
 
